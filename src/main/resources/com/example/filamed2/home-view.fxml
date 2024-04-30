@@ -80,14 +80,14 @@
          </Pane>
       </children>
    </Pane>
-   <Pane prefHeight="155.0" prefWidth="335.0" style="-fx-background-color: #FFFFFF; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0, 0, 0); -fx-background-radius: 15;">
+   <Pane prefHeight="155.0" prefWidth="335.0" style="-fx-background-color: #0480C4; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0, 0, 0); -fx-background-radius: 15;">
       <children>
-         <Label layoutX="137.0" layoutY="10.0" text="MENU">
+         <Label layoutX="137.0" layoutY="10.0" text="MENU" textFill="WHITE">
             <font>
                <Font size="18.0" />
             </font>
          </Label>
-         <Button fx:id="cadastrarPaciente" layoutX="21.0" layoutY="53.0" mnemonicParsing="false" onAction="#inserir" prefHeight="57.0" prefWidth="75.0" style="-fx-background-color: #0480C4;" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <Button fx:id="cadastrarPaciente" layoutX="21.0" layoutY="53.0" mnemonicParsing="false" onAction="#inserir" prefHeight="57.0" prefWidth="75.0" style="-fx-background-color: #FFFFFF;" textAlignment="CENTER" textFill="WHITE" wrapText="true">
             <graphic>
                <ImageView fitHeight="52.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
                   <image>
@@ -99,20 +99,33 @@
                <Cursor fx:constant="HAND" />
             </cursor>
          </Button>
-         <Label layoutX="9.0" layoutY="117.0" text="Cadastrar Paciente" />
-         <Button fx:id="extrairPaciente" layoutX="238.0" layoutY="49.0" mnemonicParsing="false" onAction="#extrair" prefHeight="57.0" prefWidth="75.0" style="-fx-background-color: #0480C4;" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <Label layoutX="9.0" layoutY="117.0" text="Cadastrar Paciente" textFill="WHITE" />
+         <Button fx:id="extrairPaciente" layoutX="241.0" layoutY="53.0" mnemonicParsing="false" onAction="#extrair" prefHeight="57.0" prefWidth="75.0" style="-fx-background-color: #FFFFFF;" textAlignment="CENTER" textFill="WHITE" wrapText="true">
             <cursor>
                <Cursor fx:constant="HAND" />
             </cursor>
             <graphic>
-               <ImageView fitHeight="52.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+               <ImageView fitHeight="45.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
                   <image>
-                     <Image url="@../../../imgs/cadastrar-paciente.png" />
+                     <Image url="@../../../imgs/consultar-filas.png" />
                   </image>
                </ImageView>
             </graphic>
          </Button>
-         <Label layoutX="232.0" layoutY="117.0" text="Chamar Próximo" />
+         <Label layoutX="240.0" layoutY="117.0" text="Consultar Filas" textFill="WHITE" />
+         <Button fx:id="cadastrarPaciente1" layoutX="130.0" layoutY="53.0" mnemonicParsing="false" onAction="#inserir" prefHeight="57.0" prefWidth="75.0" style="-fx-background-color: #FFFFFF;" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+            <graphic>
+               <ImageView fitHeight="52.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../../../imgs/verificar-cpf.png" />
+                  </image>
+               </ImageView>
+            </graphic>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </Button>
+         <Label layoutX="134.0" layoutY="117.0" text="Verificar CPF" textFill="WHITE" />
       </children>
    </Pane>
 </VBox>
