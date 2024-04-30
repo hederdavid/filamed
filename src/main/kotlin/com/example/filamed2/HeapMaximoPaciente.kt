@@ -1,4 +1,4 @@
-package com.example.filamed2.home
+package com.example.filamed2
 
 class HeapMaximoPaciente(private val tamanho: Int = 10): HeapingPaciente {
 

@@ -1,10 +1,15 @@
-package com.example.filamed2.home
+package com.example.filamed2
 
 import javafx.event.ActionEvent
 import javafx.fxml.FXML
+import javafx.fxml.FXMLLoader
+import javafx.scene.Parent
+import javafx.scene.Scene
 import javafx.scene.control.Label
+import javafx.stage.Stage
 
-class HelloController {
+
+class HomeController {
     private var fila: HeapingPaciente = HeapMaximoPaciente(10)
     private var pacientes: Int = 0
 
@@ -45,19 +50,7 @@ class HelloController {
 
     @FXML
     private fun inserir(event: ActionEvent) {
-        var paciente: Paciente = Paciente("João da Silva Costa", 30, novaPrioridade(Prioridade.ALTA))
-        fila.inserir(paciente)
-        if (pacientes == 0) {
-            nomeProximoPaciente.text = paciente.nome
-            idadeProximoPaciente.text = paciente.idade.toString()
-            prioridadePaciente.text = paciente.prioridade.toString()
-        } else {
-            nomeProximoPaciente.text = fila.obter()?.nome
-            idadeProximoPaciente.text = fila.obter()?.idade.toString()
-            prioridadePaciente.text = fila.obter()?.prioridade.toString()
-        }
-        pacientes++
-        pacientesNaFila.text = pacientes.toString()
+        carregarTelaCadastro()
     }
     @FXML
     private fun extrair(event: ActionEvent) {
@@ -71,5 +64,15 @@ class HelloController {
         }
         pacientes--
         pacientesNaFila.text = pacientes.toString()
+    }
+
+    fun carregarTelaCadastro() {
+        val root: Parent = FXMLLoader.load(javaClass.getResource("cadastro-view.fxml"))
+        val scene = Scene(root)
+
+        val stage = Stage()
+        stage.title = "Cadastro de paciente"
+        stage.scene = scene
+        stage.show()
     }
 }

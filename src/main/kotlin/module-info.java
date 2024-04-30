@@ -4,6 +4,6 @@ module com.example.filamed2 {
     requires kotlin.stdlib;
 
 
-    opens com.example.filamed2.home to javafx.fxml;
+    opens com.example.filamed2 to javafx.fxml;
     exports com.example.filamed2;
 }

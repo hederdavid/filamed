@@ -1,4 +1,4 @@
-package com.example.filamed2.home
+package com.example.filamed2
 
 public interface HeapingPaciente {
     fun inserir(dado: Paciente)		//insert	C

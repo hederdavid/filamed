@@ -1,4 +1,4 @@
-package com.example.filamed2.home
+package com.example.filamed2
 
 data class Paciente(val nome: String, val idade: Int, val prioridade: Long) {
 
