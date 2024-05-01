@@ -22,17 +22,25 @@
    </Label>
    <Pane prefHeight="86.0" prefWidth="333.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0, 0, 0);">
       <children>
-      
-                <Label fx:id="welcomeText" layoutX="161.0" layoutY="46.0" text="Pacientes na fila">
-            <font>
-               <Font size="17.0" />
-            </font>
-         </Label>
-         <Label fx:id="pacientesNaFila" layoutX="203.0" layoutY="6.0" text="0" textAlignment="CENTER">
-            <font>
-               <Font name="Century" size="37.0" />
-            </font>
-         </Label>
+         <VBox alignment="CENTER" layoutX="98.0" layoutY="10.0" prefHeight="41.0" prefWidth="237.0">
+            <children>
+               <Label fx:id="pacientesNaFila" text="0" textAlignment="CENTER">
+                  <font>
+                     <Font name="Century" size="37.0" />
+                  </font>
+               </Label>
+            </children>
+         </VBox>
+         <VBox alignment="CENTER" layoutX="98.0" layoutY="49.0" prefHeight="27.0" prefWidth="237.0">
+            <children>
+            
+                            <Label fx:id="welcomeText" text="Pacientes na fila">
+                  <font>
+                     <Font size="17.0" />
+                  </font>
+               </Label>
+            </children>
+         </VBox>
          <Pane layoutY="-1.0" prefHeight="88.0" prefWidth="98.0" style="-fx-background-color: #0480C4; -fx-background-radius: 15 0 0 15;">
             <children>
                <ImageView fitHeight="41.0" fitWidth="50.0" layoutX="31.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
@@ -48,24 +56,43 @@
       <children>
          <Pane prefHeight="41.0" prefWidth="335.0" style="-fx-background-color: #0480C4; -fx-background-radius: 15 15 0 0;">
             <children>
-               <Label alignment="CENTER" contentDisplay="CENTER" layoutX="91.0" layoutY="8.0" text="PRÓXIMO PACIENTE" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS">
+               <VBox alignment="CENTER" prefHeight="41.0" prefWidth="335.0">
+                  <children>
+                     <Label alignment="CENTER" contentDisplay="CENTER" text="PRÓXIMO PACIENTE" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS">
+                        <font>
+                           <Font size="17.0" />
+                        </font>
+                     </Label>
+                  </children>
+               </VBox>
+            </children>
+         </Pane>
+         <VBox alignment="CENTER" layoutY="37.0" prefHeight="57.0" prefWidth="335.0">
+            <children>
+               <Label fx:id="nomeProximoPaciente" alignment="CENTER" contentDisplay="CENTER" text="NENHUM PACIENTE NA FILA" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
                   <font>
-                     <Font size="17.0" />
+                     <Font size="15.0" />
                   </font>
                </Label>
             </children>
-         </Pane>
-         <Label fx:id="nomeProximoPaciente" alignment="CENTER" contentDisplay="CENTER" layoutX="66.0" layoutY="54.0" text="NENHUM PACIENTE NA FILA" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
-            <font>
-               <Font size="15.0" />
-            </font>
-         </Label>
-         <Label fx:id="idadeProximoPaciente" layoutX="160.0" layoutY="82.0" textAlignment="CENTER" wrapText="true">
-            <font>
-               <Font size="15.0" />
-            </font>
-         </Label>
-         <Pane layoutX="43.0" layoutY="113.0" prefHeight="73.0" prefWidth="246.0" style="-fx-background-radius: 15; -fx-background-color: #03537F;">
+         </VBox>
+         <VBox alignment="TOP_CENTER" layoutY="90.0" prefHeight="27.0" prefWidth="335.0">
+            <children>
+               <Label fx:id="idadeProximoPaciente" text="0" textAlignment="CENTER" wrapText="true">
+                  <font>
+                     <Font size="15.0" />
+                  </font>
+                  <graphic>
+                     <Label fx:id="idadeProximoPaciente1" text="Idade: " textAlignment="CENTER" wrapText="true">
+                        <font>
+                           <Font size="15.0" />
+                        </font>
+                     </Label>
+                  </graphic>
+               </Label>
+            </children>
+         </VBox>
+         <Pane layoutX="43.0" layoutY="128.0" prefHeight="47.0" prefWidth="246.0" style="-fx-background-radius: 15; -fx-background-color: #03537F;">
             <children>
                <Label layoutX="74.0" layoutY="12.0" text="PRIORIDADE:" textFill="WHITE">
                   <font>
