@@ -17,7 +17,7 @@
     </padding>
    <Label contentDisplay="TOP" text="SISTEMA DE GERENCIAMENTO DE PACIENTES" textAlignment="CENTER" textFill="#0480c4" textOverrun="CLIP" wrapText="true">
       <font>
-         <Font size="22.0" />
+         <Font name="System Bold" size="22.0" />
       </font>
    </Label>
    <Pane prefHeight="86.0" prefWidth="333.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0, 0, 0);">
@@ -161,7 +161,7 @@
             </children></Pane>
          <Pane layoutY="146.0" prefHeight="35.0" prefWidth="335.0" style="-fx-background-color: #AFD7FE; -fx-background-radius: 0 0 15 15;">
             <children>
-               <Label alignment="CENTER" contentDisplay="CENTER" layoutX="12.0" layoutY="7.0" text="Crianças" textAlignment="CENTER">
+               <Label alignment="CENTER" contentDisplay="CENTER" layoutX="12.0" layoutY="7.0" text="Idosos" textAlignment="CENTER">
                   <font>
                      <Font size="13.0" />
                   </font>
