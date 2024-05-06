@@ -3,41 +3,46 @@ package com.example.filamed2
 import javafx.event.ActionEvent
 import javafx.fxml.FXML
 import javafx.fxml.FXMLLoader
+import javafx.scene.Node
 import javafx.scene.Parent
 import javafx.scene.Scene
-import javafx.scene.control.Button
 import javafx.scene.control.TextField
 import javafx.stage.Stage
 
 class CadastroController {
+    @FXML
     lateinit var nomeField: TextField
+    @FXML
     lateinit var cpfField: TextField
+    @FXML
     lateinit var sexoField: TextField
+    @FXML
     lateinit var dataNascimentoField: TextField
+    @FXML
     lateinit var relatoQueixasSintomasField: TextField
-    fun salvarDadosEChamarProximaTela(event: ActionEvent) {
-            val nome: String = nomeField.text
-            val cpf: String = cpfField.text
-            val sexo: String = sexoField.text
-            val dataNascimento: String = dataNascimentoField.text
-            val relato: String = relatoQueixasSintomasField.text
 
-            // Adicione aqui a lógica de verificação do nome de usuário e senha
-            println("Nome: $nome")
-            println("CPF: $cpf")
-            println("Sexo: $sexo")
-            println("Data de Nascimento: $dataNascimento")
-            println("Relato: $relato")
-            carregarTelaPrioridade()
-    }
+    private lateinit var stage: Stage
+    private lateinit var scene: Scene
+    private lateinit var root: Parent
 
-    private fun carregarTelaPrioridade() {
-        val root: Parent = FXMLLoader.load(javaClass.getResource("prioridade-view.fxml"))
-        val scene = Scene(root)
 
-        val stage = Stage()
-        stage.title = "Prioridade"
+    fun selecionarTelaPrioridade(event: ActionEvent) {
+        val nome: String = nomeField.text
+        val idade: String = dataNascimentoField.text
+
+        val loader = FXMLLoader(javaClass.getResource("home-view.fxml"))
+        root = loader.load()
+
+        val homecontroller: HomeController = loader.getController()
+        homecontroller.inserirDados(nome, idade)
+
+        root = FXMLLoader.load(javaClass.getResource("prioridade-view.fxml"))
+        stage = (event.source as Node).scene.window as Stage
+        scene = Scene(root)
         stage.scene = scene
         stage.show()
     }
+
+
+
 }

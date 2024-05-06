@@ -34,7 +34,7 @@
          <VBox alignment="CENTER" layoutX="98.0" layoutY="49.0" prefHeight="27.0" prefWidth="237.0">
             <children>
             
-                            <Label fx:id="welcomeText" text="Pacientes na fila">
+                            <Label text="Pacientes na fila">
                   <font>
                      <Font size="17.0" />
                   </font>
@@ -83,7 +83,7 @@
                      <Font size="15.0" />
                   </font>
                   <graphic>
-                     <Label fx:id="idadeProximoPaciente1" text="Idade: " textAlignment="CENTER" wrapText="true">
+                     <Label text="Idade: " textAlignment="CENTER" wrapText="true">
                         <font>
                            <Font size="15.0" />
                         </font>
@@ -94,14 +94,14 @@
          </VBox>
          <Pane layoutX="43.0" layoutY="128.0" prefHeight="47.0" prefWidth="246.0" style="-fx-background-radius: 15; -fx-background-color: #03537F;">
             <children>
-               <Label layoutX="74.0" layoutY="12.0" text="PRIORIDADE:" textFill="WHITE">
+               <Label layoutX="32.0" layoutY="12.0" text="PRIORIDADE:" textFill="WHITE">
                   <font>
                      <Font size="17.0" />
                   </font>
                </Label>
-               <Label fx:id="prioridadePaciente" layoutX="100.0" layoutY="35.0" textFill="WHITE">
+               <Label fx:id="prioridadeDoPaciente" layoutX="146.0" layoutY="12.0" prefHeight="25.0" prefWidth="91.0" text="Não definida" textFill="WHITE">
                   <font>
-                     <Font size="16.0" />
+                     <Font size="14.0" />
                   </font>
                </Label>
             </children>
@@ -195,7 +195,7 @@
             </cursor>
          </Button>
          <Label layoutX="9.0" layoutY="117.0" text="Cadastrar Paciente" textFill="WHITE" />
-         <Button fx:id="cadastrarPaciente1" layoutX="130.0" layoutY="53.0" mnemonicParsing="false" onAction="#inserir" prefHeight="57.0" prefWidth="75.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #0480C4;" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <Button fx:id="cadastrarPaciente1" layoutX="130.0" layoutY="53.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="75.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #0480C4;" textAlignment="CENTER" textFill="WHITE" wrapText="true">
             <graphic>
                <ImageView fitHeight="52.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
                   <image>
@@ -207,7 +207,7 @@
                <Cursor fx:constant="HAND" />
             </cursor>
          </Button>
-         <Button fx:id="extrairPaciente" layoutX="241.0" layoutY="53.0" mnemonicParsing="false" onAction="#extrair" prefHeight="57.0" prefWidth="75.0" style="-fx-background-color: #FFFFFF; -fx-border-radius: 10; -fx-border-color: #0480C4; -fx-background-radius: 10;" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <Button fx:id="extrairPaciente" layoutX="241.0" layoutY="53.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="75.0" style="-fx-background-color: #FFFFFF; -fx-border-radius: 10; -fx-border-color: #0480C4; -fx-background-radius: 10;" textAlignment="CENTER" textFill="WHITE" wrapText="true">
             <cursor>
                <Cursor fx:constant="HAND" />
             </cursor>

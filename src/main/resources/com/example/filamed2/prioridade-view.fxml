@@ -1,108 +1,116 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="815.0" prefWidth="375.0" style="-fx-background-color: #F1FAFF; -fx-padding: 15;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.filamed2.CadastroController">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="815.0" prefWidth="375.0" style="-fx-background-color: #F1FAFF; -fx-padding: 15;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.filamed2.PrioridadeController">
    <children>
       <Label style="-fx-label-padding: 10 0 90 0;" text="Selecione a prioridade do paciente" textAlignment="CENTER" textFill="#0480c4" wrapText="true">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <VBox prefHeight="521.0" prefWidth="345.0">
+      <VBox prefHeight="530.0" prefWidth="345.0">
          <children>
-            <VBox prefHeight="99.0" prefWidth="345.0">
+            <VBox alignment="TOP_RIGHT" prefHeight="112.0" prefWidth="345.0">
                <children>
-                  <Pane prefHeight="68.0" prefWidth="345.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 9; -fx-border-radius: 9;">
-                     <children>
-                        <Pane layoutX="-1.0" layoutY="-1.0" prefHeight="69.0" prefWidth="12.0" style="-fx-background-color: #E70A0A; -fx-background-radius: 9 0 0 9;" />
-                        <VBox alignment="CENTER" prefHeight="69.0" prefWidth="345.0">
+                  <Button fx:id="botaoEmergencia" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#selecionarTelaHome" prefHeight="69.0" prefWidth="334.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 0 9 9 0; -fx-border-radius: 0 9 9 0;" text="Emergência">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                     <graphic>
+                        <Pane prefHeight="62.0" prefWidth="345.0">
                            <children>
-                              <Label text="Emergência">
-                                 <font>
-                                    <Font name="System Bold" size="20.0" />
-                                 </font>
-                              </Label>
+                              <HBox layoutX="-6.0" layoutY="-4.0" prefHeight="70.0" prefWidth="12.0" style="-fx-background-radius: 9 0 0 9; -fx-background-color: #E70A0A;" />
                            </children>
-                        </VBox>
-                     </children>
-                  </Pane>
+                        </Pane>
+                     </graphic>
+                  </Button>
                </children>
             </VBox>
-            <VBox prefHeight="99.0" prefWidth="345.0">
+            <VBox alignment="TOP_RIGHT" prefHeight="112.0" prefWidth="345.0">
                <children>
-                  <Pane prefHeight="68.0" prefWidth="345.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 9; -fx-border-radius: 9;">
-                     <children>
-                        <Pane layoutX="-1.0" layoutY="-1.0" prefHeight="69.0" prefWidth="12.0" style="-fx-background-color: #F28F1B; -fx-background-radius: 9 0 0 9;" />
-                        <VBox alignment="CENTER" prefHeight="69.0" prefWidth="345.0">
+                  <Button fx:id="botaoMuitaUrgencia" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#selecionarTelaHome" prefHeight="69.0" prefWidth="334.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 0 9 9 0; -fx-border-radius: 0 9 9 0;" text="Muita urgência">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                     <graphic>
+                        <Pane prefHeight="62.0" prefWidth="345.0">
                            <children>
-                              <Label text="Muita urgência">
-                                 <font>
-                                    <Font name="System Bold" size="20.0" />
-                                 </font>
-                              </Label>
+                              <HBox layoutX="-6.0" layoutY="-4.0" prefHeight="70.0" prefWidth="12.0" style="-fx-background-radius: 9 0 0 9; -fx-background-color: #F28F1B;" />
                            </children>
-                        </VBox>
-                     </children>
-                  </Pane>
+                        </Pane>
+                     </graphic>
+                  </Button>
                </children>
             </VBox>
-            <VBox prefHeight="99.0" prefWidth="345.0">
+            <VBox alignment="TOP_RIGHT" prefHeight="112.0" prefWidth="345.0">
                <children>
-                  <Pane prefHeight="68.0" prefWidth="345.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 9; -fx-border-radius: 9;">
-                     <children>
-                        <Pane layoutX="-1.0" layoutY="-1.0" prefHeight="69.0" prefWidth="12.0" style="-fx-background-color: #FAFF04; -fx-background-radius: 9 0 0 9;" />
-                        <VBox alignment="CENTER" prefHeight="69.0" prefWidth="345.0">
+                  <Button fx:id="botaoUrgencia" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#selecionarTelaHome" prefHeight="69.0" prefWidth="334.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 0 9 9 0; -fx-border-radius: 0 9 9 0;" text="Urgência">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                     <graphic>
+                        <Pane prefHeight="62.0" prefWidth="345.0">
                            <children>
-                              <Label text="Urgência">
-                                 <font>
-                                    <Font name="System Bold" size="20.0" />
-                                 </font>
-                              </Label>
+                              <HBox layoutX="-6.0" layoutY="-4.0" prefHeight="70.0" prefWidth="12.0" style="-fx-background-radius: 9 0 0 9; -fx-background-color: #FAFF04;" />
                            </children>
-                        </VBox>
-                     </children>
-                  </Pane>
+                        </Pane>
+                     </graphic>
+                  </Button>
                </children>
             </VBox>
-            <VBox prefHeight="99.0" prefWidth="345.0">
+            <VBox alignment="TOP_RIGHT" prefHeight="112.0" prefWidth="345.0">
                <children>
-                  <Pane prefHeight="68.0" prefWidth="345.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 9; -fx-border-radius: 9;">
-                     <children>
-                        <Pane layoutX="-1.0" layoutY="-1.0" prefHeight="69.0" prefWidth="12.0" style="-fx-background-color: #0AE720; -fx-background-radius: 9 0 0 9;" />
-                        <VBox alignment="CENTER" prefHeight="69.0" prefWidth="345.0">
+                  <Button fx:id="botaoPoucaUrgencia" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#selecionarTelaHome" prefHeight="69.0" prefWidth="334.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 0 9 9 0; -fx-border-radius: 0 9 9 0;" text="Pouca urgência">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                     <graphic>
+                        <Pane prefHeight="62.0" prefWidth="345.0">
                            <children>
-                              <Label text="Pouca urgência">
-                                 <font>
-                                    <Font name="System Bold" size="20.0" />
-                                 </font>
-                              </Label>
+                              <HBox layoutX="-6.0" layoutY="-4.0" prefHeight="70.0" prefWidth="12.0" style="-fx-background-radius: 9 0 0 9; -fx-background-color: #0AE720;" />
                            </children>
-                        </VBox>
-                     </children>
-                  </Pane>
+                        </Pane>
+                     </graphic>
+                  </Button>
                </children>
             </VBox>
-            <VBox prefHeight="99.0" prefWidth="345.0">
+            <VBox fx:id="botaoNaoUrgencia" alignment="TOP_RIGHT" prefHeight="112.0" prefWidth="345.0">
                <children>
-                  <Pane prefHeight="68.0" prefWidth="345.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 9; -fx-border-radius: 9;">
-                     <children>
-                        <Pane layoutX="-1.0" layoutY="-1.0" prefHeight="69.0" prefWidth="12.0" style="-fx-background-color: #0E0AE7; -fx-background-radius: 9 0 0 9;" />
-                        <VBox alignment="CENTER" prefHeight="69.0" prefWidth="345.0">
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#selecionarTelaHome" prefHeight="69.0" prefWidth="334.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 0 9 9 0; -fx-border-radius: 0 9 9 0;" text="Não urgência">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                     <graphic>
+                        <Pane prefHeight="62.0" prefWidth="345.0">
                            <children>
-                              <Label text="Não urgência">
-                                 <font>
-                                    <Font name="System Bold" size="20.0" />
-                                 </font>
-                              </Label>
+                              <HBox layoutX="-6.0" layoutY="-4.0" prefHeight="70.0" prefWidth="12.0" style="-fx-background-radius: 9 0 0 9; -fx-background-color: #0E0AE7;" />
                            </children>
-                        </VBox>
-                     </children>
-                  </Pane>
+                        </Pane>
+                     </graphic>
+                  </Button>
                </children>
             </VBox>
          </children>
