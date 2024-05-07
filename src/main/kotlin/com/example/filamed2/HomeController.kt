@@ -13,11 +13,6 @@ import javafx.stage.Stage
 class HomeController {
     private var fila: HeapingPaciente = HeapMaximoPaciente(10)
     private var pacientes: Int = 0
-    private var nome: String = "Nome não informado"
-    private var cpf: String = "CPF não informado"
-    private var sexo: String = "Sexo não informado"
-    private var dataNascimento: String = "Data de nascimento não informada"
-    private var relato: String = "Relato não informado"
 
     @FXML
     private lateinit var prioridadeDoPaciente: Label
@@ -43,17 +38,14 @@ class HomeController {
         scene = Scene(root)
         stage.scene = scene
         stage.show()
-
     }
 
-    fun inserirDados(nome: String, idade: String) {
+    fun inserirDados(nome: String, idade: String, prioridade: String) {
         nomeProximoPaciente.text = nome
         idadeProximoPaciente.text = idade
-    }
-
-    fun inserirPrioridade(prioridade: String) {
         prioridadeDoPaciente.text = prioridade
     }
+
 
 
 

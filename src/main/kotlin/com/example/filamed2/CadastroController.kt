@@ -30,19 +30,15 @@ class CadastroController {
         val nome: String = nomeField.text
         val idade: String = dataNascimentoField.text
 
-        val loader = FXMLLoader(javaClass.getResource("home-view.fxml"))
+        val loader = FXMLLoader(javaClass.getResource("prioridade-view.fxml"))
         root = loader.load()
 
-        val homecontroller: HomeController = loader.getController()
-        homecontroller.inserirDados(nome, idade)
+        val prioridadeController: PrioridadeController = loader.getController()
+        prioridadeController.setDados(nome, idade)
 
-        root = FXMLLoader.load(javaClass.getResource("prioridade-view.fxml"))
-        stage = (event.source as Node).scene.window as Stage
+        stage = Stage()
         scene = Scene(root)
         stage.scene = scene
         stage.show()
     }
-
-
-
 }

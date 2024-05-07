@@ -9,10 +9,12 @@ import javafx.stage.Stage
 
 class PrioridadeController {
 
+    private lateinit var nome: String
+    private lateinit var idade: String
+
     private lateinit var stage: Stage
     private lateinit var scene: Scene
     private lateinit var root: Parent
-
 
     fun selecionarTelaHome(event: ActionEvent) {
         val prioridade: String = "Urgente"
@@ -21,13 +23,22 @@ class PrioridadeController {
         root = loader.load()
 
         val homecontroller: HomeController = loader.getController()
-        homecontroller.inserirPrioridade(prioridade)
-        root = FXMLLoader.load(javaClass.getResource("home-view.fxml"))
+        homecontroller.inserirDados(nome, idade, prioridade)
+
+
+        //root = FXMLLoader.load(javaClass.getResource("home-view.fxml"))
         stage = (event.source as Node).scene.window as Stage
         scene = Scene(root)
         stage.scene = scene
         stage.show()
     }
+
+    fun setDados(nome: String, idade: String) {
+        this.nome = nome
+        this.idade = idade
+    }
+
+
 
 
 
