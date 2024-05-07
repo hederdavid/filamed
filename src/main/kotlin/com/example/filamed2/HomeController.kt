@@ -45,10 +45,4 @@ class HomeController {
         idadeProximoPaciente.text = idade
         prioridadeDoPaciente.text = prioridade
     }
-
-
-
-
-
-
 }

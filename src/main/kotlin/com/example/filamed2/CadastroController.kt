@@ -36,7 +36,7 @@ class CadastroController {
         val prioridadeController: PrioridadeController = loader.getController()
         prioridadeController.setDados(nome, idade)
 
-        stage = Stage()
+        stage = (event.source as Node).scene.window as Stage
         scene = Scene(root)
         stage.scene = scene
         stage.show()

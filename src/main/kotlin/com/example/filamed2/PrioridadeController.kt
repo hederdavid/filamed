@@ -11,6 +11,7 @@ class PrioridadeController {
 
     private lateinit var nome: String
     private lateinit var idade: String
+    private lateinit var pacientes: String
 
     private lateinit var stage: Stage
     private lateinit var scene: Scene
