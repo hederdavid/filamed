@@ -10,6 +10,7 @@ import javafx.scene.control.TextField
 import javafx.stage.Stage
 
 class CadastroController {
+
     @FXML
     lateinit var nomeField: TextField
     @FXML
@@ -21,6 +22,8 @@ class CadastroController {
     @FXML
     lateinit var relatoQueixasSintomasField: TextField
 
+    private var pacientes = 0
+    private lateinit var fila: HeapMaximoPaciente
     private lateinit var stage: Stage
     private lateinit var scene: Scene
     private lateinit var root: Parent
@@ -29,16 +32,24 @@ class CadastroController {
     fun selecionarTelaPrioridade(event: ActionEvent) {
         val nome: String = nomeField.text
         val idade: String = dataNascimentoField.text
+        val cpf: String = cpfField.text
+        val sexo: String = sexoField.text
+        val relato: String = relatoQueixasSintomasField.text
 
         val loader = FXMLLoader(javaClass.getResource("prioridade-view.fxml"))
         root = loader.load()
 
         val prioridadeController: PrioridadeController = loader.getController()
-        prioridadeController.setDados(nome, idade)
+        prioridadeController.setDados(nome, idade, cpf, sexo, relato, pacientes, fila)
 
         stage = (event.source as Node).scene.window as Stage
         scene = Scene(root)
         stage.scene = scene
         stage.show()
+    }
+
+    fun setFilaEPacientes(fila: HeapMaximoPaciente, pacientes: Int) {
+        this.fila = fila
+        this.pacientes = pacientes
     }
 }

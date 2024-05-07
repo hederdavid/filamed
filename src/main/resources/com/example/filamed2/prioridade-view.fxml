@@ -20,7 +20,7 @@
          <children>
             <VBox alignment="TOP_RIGHT" prefHeight="112.0" prefWidth="345.0">
                <children>
-                  <Button fx:id="botaoEmergencia" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#selecionarTelaHome" prefHeight="69.0" prefWidth="334.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 0 9 9 0; -fx-border-radius: 0 9 9 0;" text="Emergência">
+                  <Button fx:id="botaoEmergencia" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#prioridadeEmergencia" prefHeight="69.0" prefWidth="334.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 0 9 9 0; -fx-border-radius: 0 9 9 0;" text="Emergência">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -39,7 +39,7 @@
             </VBox>
             <VBox alignment="TOP_RIGHT" prefHeight="112.0" prefWidth="345.0">
                <children>
-                  <Button fx:id="botaoMuitaUrgencia" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#selecionarTelaHome" prefHeight="69.0" prefWidth="334.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 0 9 9 0; -fx-border-radius: 0 9 9 0;" text="Muita urgência">
+                  <Button fx:id="botaoMuitaUrgencia" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#prioridadeMuitaUrgencia" prefHeight="69.0" prefWidth="334.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 0 9 9 0; -fx-border-radius: 0 9 9 0;" text="Muita urgência">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -58,7 +58,7 @@
             </VBox>
             <VBox alignment="TOP_RIGHT" prefHeight="112.0" prefWidth="345.0">
                <children>
-                  <Button fx:id="botaoUrgencia" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#selecionarTelaHome" prefHeight="69.0" prefWidth="334.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 0 9 9 0; -fx-border-radius: 0 9 9 0;" text="Urgência">
+                  <Button fx:id="botaoUrgencia" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#prioridadeUrgencia" prefHeight="69.0" prefWidth="334.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 0 9 9 0; -fx-border-radius: 0 9 9 0;" text="Urgência">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -77,7 +77,7 @@
             </VBox>
             <VBox alignment="TOP_RIGHT" prefHeight="112.0" prefWidth="345.0">
                <children>
-                  <Button fx:id="botaoPoucaUrgencia" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#selecionarTelaHome" prefHeight="69.0" prefWidth="334.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 0 9 9 0; -fx-border-radius: 0 9 9 0;" text="Pouca urgência">
+                  <Button fx:id="botaoPoucaUrgencia" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#prioridadePoucaUrgencia" prefHeight="69.0" prefWidth="334.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 0 9 9 0; -fx-border-radius: 0 9 9 0;" text="Pouca urgência">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -96,7 +96,7 @@
             </VBox>
             <VBox fx:id="botaoNaoUrgencia" alignment="TOP_RIGHT" prefHeight="112.0" prefWidth="345.0">
                <children>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#selecionarTelaHome" prefHeight="69.0" prefWidth="334.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 0 9 9 0; -fx-border-radius: 0 9 9 0;" text="Não urgência">
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#prioridadeNaoUrgencia" prefHeight="69.0" prefWidth="334.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 0 9 9 0; -fx-border-radius: 0 9 9 0;" text="Não urgência">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>

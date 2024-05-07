@@ -19,7 +19,7 @@
          <children>
             <VBox prefHeight="88.0" prefWidth="345.0">
                <children>
-                  <Label prefHeight="30.0" prefWidth="345.0" style="-fx-padding: 0 0 0 8;" text="Nome completo" textAlignment="CENTER" textFill="#0480c4" wrapText="true">
+                  <Label prefHeight="30.0" prefWidth="345.0" style="-fx-padding: 0 0 0 8;" text="Nome completo *" textAlignment="CENTER" textFill="#0480c4" wrapText="true">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -33,7 +33,7 @@
             </VBox>
             <VBox prefHeight="88.0" prefWidth="345.0">
                <children>
-                  <Label prefHeight="30.0" prefWidth="345.0" style="-fx-padding: 0 0 0 8;" text="CPF" textAlignment="CENTER" textFill="#0480c4" wrapText="true">
+                  <Label prefHeight="30.0" prefWidth="345.0" style="-fx-padding: 0 0 0 8;" text="CPF *" textAlignment="CENTER" textFill="#0480c4" wrapText="true">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -47,7 +47,7 @@
             </VBox>
             <VBox prefHeight="88.0" prefWidth="345.0">
                <children>
-                  <Label prefHeight="30.0" prefWidth="345.0" style="-fx-padding: 0 0 0 8;" text="Sexo" textAlignment="CENTER" textFill="#0480c4" wrapText="true">
+                  <Label prefHeight="30.0" prefWidth="345.0" style="-fx-padding: 0 0 0 8;" text="Sexo *" textAlignment="CENTER" textFill="#0480c4" wrapText="true">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -61,7 +61,7 @@
             </VBox>
             <VBox prefHeight="88.0" prefWidth="345.0">
                <children>
-                  <Label prefHeight="30.0" prefWidth="345.0" style="-fx-padding: 0 0 0 8;" text="Data de nascimento" textAlignment="CENTER" textFill="#0480c4" wrapText="true">
+                  <Label prefHeight="30.0" prefWidth="345.0" style="-fx-padding: 0 0 0 8;" text="Data de nascimento *" textAlignment="CENTER" textFill="#0480c4" wrapText="true">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -75,7 +75,7 @@
             </VBox>
             <VBox prefHeight="169.0" prefWidth="345.0">
                <children>
-                  <Label prefHeight="30.0" prefWidth="345.0" style="-fx-padding: 0 0 0 8;" text="Relato de queixas e/ou sintomas" textAlignment="CENTER" textFill="#0480c4" wrapText="true">
+                  <Label prefHeight="30.0" prefWidth="345.0" style="-fx-padding: 0 0 0 8;" text="Relato de queixas e/ou sintomas *" textAlignment="CENTER" textFill="#0480c4" wrapText="true">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>

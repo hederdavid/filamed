@@ -7,13 +7,15 @@ class HeapMaximoPaciente(private val tamanho: Int = 10): HeapingPaciente {
 
     override fun inserir(dado: Paciente) {
         if (!estaCheia()) {
-            ponteiroFim = ponteiroFim.inc()
+            ponteiroFim++
             dados[ponteiroFim] = dado
             ajustarAcima(ponteiroFim)
         } else {
             println("Fila de Prioridades Cheia!")
         }
     }
+
+
 
     private fun ajustarAcima(indice: Int) {
         var indiceAtual = indice
@@ -113,5 +115,9 @@ class HeapMaximoPaciente(private val tamanho: Int = 10): HeapingPaciente {
                 resultado += ","
         }
         return "$resultado\n]"
+    }
+
+    override fun toString(): String {
+        return "HeapMaximoPaciente(tamanho=$tamanho, dados=${dados.contentToString()}, ponteiroFim=$ponteiroFim)"
     }
 }
