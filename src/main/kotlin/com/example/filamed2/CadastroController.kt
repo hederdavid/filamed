@@ -8,6 +8,8 @@ import javafx.scene.Parent
 import javafx.scene.Scene
 import javafx.scene.control.TextField
 import javafx.stage.Stage
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 class CadastroController {
 
@@ -22,25 +24,20 @@ class CadastroController {
     @FXML
     lateinit var relatoQueixasSintomasField: TextField
 
-    private var pacientes = 0
-    private lateinit var fila: HeapMaximoPaciente
+
+    private lateinit var fila: FilaPrioridade
+    private var qtdCacientesEnfileirados = 0
+
     private lateinit var stage: Stage
     private lateinit var scene: Scene
     private lateinit var root: Parent
 
 
-    fun selecionarTelaPrioridade(event: ActionEvent) {
-        val nome: String = nomeField.text
-        val idade: String = dataNascimentoField.text
-        val cpf: String = cpfField.text
-        val sexo: String = sexoField.text
-        val relato: String = relatoQueixasSintomasField.text
-
+    fun carregarTelaPrioridade(event: ActionEvent) {
         val loader = FXMLLoader(javaClass.getResource("prioridade-view.fxml"))
         root = loader.load()
 
-        val prioridadeController: PrioridadeController = loader.getController()
-        prioridadeController.setDados(nome, idade, cpf, sexo, relato, pacientes, fila)
+        atualizarDadosTelaPrioridade(loader)
 
         stage = (event.source as Node).scene.window as Stage
         scene = Scene(root)
@@ -48,8 +45,24 @@ class CadastroController {
         stage.show()
     }
 
-    fun setFilaEPacientes(fila: HeapMaximoPaciente, pacientes: Int) {
+    fun setDadosCadastro(fila: FilaPrioridade, qtdCacientesEnfileirados: Int) {
         this.fila = fila
-        this.pacientes = pacientes
+        this.qtdCacientesEnfileirados = qtdCacientesEnfileirados
+    }
+
+    private fun atualizarDadosTelaPrioridade(loader: FXMLLoader) {
+        val nomeCompleto: String = nomeField.text
+        val cpf: String = cpfField.text
+        val sexo: Char = sexoField.text[0]
+
+        val formato = DateTimeFormatter.ofPattern("dd/MM/yyyy")
+        val dataNascimentoString: String = dataNascimentoField.text
+        val dataNascimento: LocalDate = LocalDate.parse(dataNascimentoString, formato)
+
+        val relatoQueixasSintomas: String = relatoQueixasSintomasField.text
+        val prioridadeController: PrioridadeController = loader.getController()
+
+        prioridadeController.setDados(nomeCompleto, cpf, sexo, dataNascimento, relatoQueixasSintomas,
+                qtdCacientesEnfileirados, fila)
     }
 }

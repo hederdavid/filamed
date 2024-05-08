@@ -6,68 +6,36 @@ import javafx.scene.Node
 import javafx.scene.Parent
 import javafx.scene.Scene
 import javafx.stage.Stage
+import java.time.LocalDate
+import java.time.Period
+
 
 class PrioridadeController {
 
-    private lateinit var nome: String
-    private lateinit var idade: String
+    private lateinit var nomeCompleto: String
     private lateinit var cpf: String
-    private lateinit var sexo: String
-    private lateinit var relato: String
+    private var sexo: Char = '\u0000'
+    private lateinit var dataNascimento: LocalDate
+    private lateinit var relatoQueixasSintomas: String
+    private var prioridade: Int = 0
+    private var prioridadeString: String = ""
 
-    private var prioridade: String = "Prioridade não selecionada"
-    private var pacientes = 0
-    private lateinit var fila: HeapMaximoPaciente
+    private var qtdPacientesEnfileirados = 0
+    private lateinit var fila: FilaPrioridade
+
     private lateinit var stage: Stage
     private lateinit var scene: Scene
     private lateinit var root: Parent
 
-    fun setFilaEPacientes(fila: HeapMaximoPaciente, pacientes: Int) {
-        this.fila = fila
-        this.pacientes = pacientes
-    }
-
-    fun prioridadeEmergencia(event: ActionEvent) {
-        this.prioridade = "Emergência"
-        selecionarTelaHome(event)
-    }
-
-    fun prioridadeMuitaUrgencia(event: ActionEvent) {
-        this.prioridade = "Muita Urgência"
-        selecionarTelaHome(event)
-    }
-
-    fun prioridadeUrgencia(event: ActionEvent) {
-        this.prioridade = "Urgência"
-        selecionarTelaHome(event)
-    }
-
-    fun prioridadePoucaUrgencia(event: ActionEvent) {
-        this.prioridade = "Pouca Urgência"
-        selecionarTelaHome(event)
-    }
-    fun prioridadeNaoUrgencia(event: ActionEvent) {
-        this.prioridade = "Não Urgência"
-        selecionarTelaHome(event)
-    }
-
-    private fun selecionarTelaHome(event: ActionEvent) {
+    private fun chamarTelaHome(event: ActionEvent) {
         val loader = FXMLLoader(javaClass.getResource("home-view.fxml"))
         root = loader.load()
 
-        val paciente = Paciente(nome, cpf, sexo, idade, relato, prioridade)
-
-        val homecontroller: HomeController = loader.getController()
-        fila.inserir(paciente)
-        pacientes++
+        inserirPacienteCadastrado()
         println(fila).toString()
-        println(pacientes)
+        println(qtdPacientesEnfileirados)
 
-        nome = fila.obter()?.nome ?: "Erro ao obter nome"
-        idade = fila.obter()?.dataNascimento ?: "Erro ao obter idade"
-        prioridade = fila.obter()?.prioridade ?: "Erro ao obter prioridade"
-
-        homecontroller.inserirDados(nome, idade, prioridade, pacientes, fila)
+        atualizarDadosTelaHome(loader)
 
         //root = FXMLLoader.load(javaClass.getResource("home-view.fxml"))
         stage = (event.source as Node).scene.window as Stage
@@ -76,13 +44,71 @@ class PrioridadeController {
         stage.show()
     }
 
-    fun setDados(nome: String, idade: String, cpf: String, sexo: String, relato: String, pacientes: Int, fila: HeapMaximoPaciente) {
-        this.nome = nome
+    private fun inserirPacienteCadastrado() {
+        val paciente = Paciente(nomeCompleto, cpf, sexo, dataNascimento, relatoQueixasSintomas, prioridade)
+        fila.enfileirar(paciente)
+        qtdPacientesEnfileirados++
+    }
+
+    private fun atualizarDadosTelaHome(loader: FXMLLoader) {
+        val homecontroller: HomeController = loader.getController()
+
+        nomeCompleto = fila.espiar()?.nomeCompleto ?: "Erro ao obter nome"
+        dataNascimento = (fila.espiar()?.dataNascimento ?: "Erro ao obter idade") as LocalDate
+
+        if (fila.espiar()?.prioridade == 5) {
+            prioridadeString = "Emergência"
+        } else if (fila.espiar()?.prioridade == 4) {
+            prioridadeString = "Muita Urgência"
+        } else if (fila.espiar()?.prioridade == 3) {
+            prioridadeString = "Urgência"
+        } else if (fila.espiar()?.prioridade == 2) {
+        prioridadeString = "Pouca Urgência"
+        } else if (fila.espiar()?.prioridade == 1) {
+            prioridadeString = "Não Urgência"
+        }
+
+        var dataAtual: LocalDate = LocalDate.now()
+        val periodo: Period = Period.between(dataNascimento, dataAtual)
+
+        val idade: String = periodo.years.toString()
+
+        homecontroller.setDadosHome(nomeCompleto, idade, prioridadeString, qtdPacientesEnfileirados, fila)
+    }
+
+    fun setDados(nomeCompleto: String, cpf: String, sexo: Char, dataNascimento: LocalDate, relatoQueixasSintomas: String,
+                 qtdPacientesEnfileirados: Int, fila: FilaPrioridade) {
+        this.nomeCompleto = nomeCompleto
         this.cpf = cpf
         this.sexo = sexo
-        this.idade = idade
-        this.relato = relato
-        this.pacientes = pacientes
+        this.dataNascimento = dataNascimento
+        this.relatoQueixasSintomas = relatoQueixasSintomas
+        this.qtdPacientesEnfileirados = qtdPacientesEnfileirados
         this.fila = fila
+    }
+
+
+    fun prioridadeEmergencia(event: ActionEvent) {
+        this.prioridade = 5
+        chamarTelaHome(event)
+    }
+
+    fun prioridadeMuitaUrgencia(event: ActionEvent) {
+        this.prioridade = 4
+        chamarTelaHome(event)
+    }
+
+    fun prioridadeUrgencia(event: ActionEvent) {
+        this.prioridade = 3
+        chamarTelaHome(event)
+    }
+
+    fun prioridadePoucaUrgencia(event: ActionEvent) {
+        this.prioridade = 2
+        chamarTelaHome(event)
+    }
+    fun prioridadeNaoUrgencia(event: ActionEvent) {
+        this.prioridade = 1
+        chamarTelaHome(event)
     }
 }

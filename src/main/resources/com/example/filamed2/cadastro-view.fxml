@@ -91,7 +91,7 @@
       </VBox>
       <VBox alignment="BOTTOM_CENTER" prefHeight="62.0" prefWidth="345.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#selecionarTelaPrioridade" prefHeight="38.0" prefWidth="238.0" style="-fx-background-color: #0071AF; -fx-background-radius: 10;" text="Selecionar Prioridade" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#carregarTelaPrioridade" prefHeight="38.0" prefWidth="238.0" style="-fx-background-color: #0071AF; -fx-background-radius: 10;" text="Selecionar Prioridade" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>

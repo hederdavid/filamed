@@ -1,8 +1,19 @@
 package com.example.filamed2
 
-data class Paciente(val nome: String, val cpf: String, val sexo: String, val dataNascimento: String, val relato: String,
-                    val prioridade: String) {
+import java.time.LocalDate
+import java.time.LocalDateTime
+
+
+data class Paciente(var nomeCompleto: String, var cpf: String, var sexo: Char, var dataNascimento: LocalDate,
+                    var relatoQueixasSintomas: String, var prioridade: Int) {
+    var dataHoraEnfileiramento: LocalDateTime = LocalDateTime.now()
+    var dataHoraDesenfileiramento = "Paciente ainda na fila"
+    var senha: String = "Senha não definida."
     override fun toString(): String {
-        return "Paciente(nome='$nome', cpf='$cpf', sexo='$sexo', dataNascimento='$dataNascimento', relato='$relato', prioridade='$prioridade')"
+        return "Paciente(nomeCompleto='$nomeCompleto', cpf='$cpf', sexo=$sexo, dataNascimento=$dataNascimento," +
+                " relatoQueixasSintomas='$relatoQueixasSintomas', prioridade=$prioridade, dataHoraEnfileiramento=$dataHoraEnfileiramento," +
+                " dataHoraDesenfileiramento=$dataHoraDesenfileiramento, senha='$senha')"
     }
+
+
 }

@@ -10,17 +10,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="41d5d62c-d457-4fc0-9614-726bb08ff3f2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/TelaInicialController.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/filamed2/telainicial-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/Enfileiravel.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/FilaPrioridade.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/filamed2_jar/filamed2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/filamed2_jar/filamed2.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/Application.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/Application.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/CadastroController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/CadastroController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/HeapMaximoPaciente.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/HeapMaximoPaciente.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/HeapMaximoPaciente.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/HeapingPaciente.kt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/HomeController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/HomeController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/Paciente.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/Paciente.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/PrioridadeController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/PrioridadeController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/TelaInicialController.kt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/filamed2/cadastro-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/filamed2/cadastro-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/filamed2/prioridade-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/filamed2/prioridade-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/filamed2/home-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/filamed2/home-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +74,7 @@
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_directory_selection": "C:/Users/Heder David/Downloads/filamed2/src/main/kotlin/com/example/filamed2",
-    "last_opened_file_path": "C:/Users/Heder David/Documents/filamed2",
+    "last_opened_file_path": "C:/Users/Heder David/Downloads/filamed2/target/classes/com/example/filamed2",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -86,16 +88,23 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Heder David\Downloads\filamed2\target\classes\com\example\filamed2" />
+      <recent name="C:\Users\Heder David\Downloads\filamed2\src\main\kotlin\com\example\filamed2" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Heder David\Downloads\filamed2\target\classes\com\example\filamed2" />
+      <recent name="C:\Users\Heder David\Downloads\filamed2\target\classes\com\example\filamed2\home" />
       <recent name="C:\Users\Heder David\Downloads\filamed2\src\main\resources\imgs" />
       <recent name="C:\Users\Heder David\Downloads\filamed2\src\main\kotlin\com\example\filamed2" />
       <recent name="C:\Users\Heder David\Downloads\filamed2\src\main\kotlin\com\example\filamed2\home" />
-      <recent name="C:\Users\Heder David\Downloads\filamed2\src\main\kotlin\com\example\filamed2\" />
-      <recent name="C:\Users\Heder David\Downloads\filamed2\src\main\resources\com\example\filamed2\views" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
       <recent name="com.example.filamed2" />
       <recent name="com.example.filamed2.home" />
+    </key>
+    <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="com.example.filamed2" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -138,34 +147,13 @@
       <workItem from="1715079234004" duration="9700000" />
       <workItem from="1715100095056" duration="2192000" />
       <workItem from="1715109544736" duration="2552000" />
+      <workItem from="1715112149507" duration="211000" />
+      <workItem from="1715115625617" duration="27000" />
+      <workItem from="1715170092711" duration="5308000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="kotlin-function">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/PrioridadeController.kt</url>
-          <line>53</line>
-          <properties class="com.example.filamed2.PrioridadeController" method="selecionarTelaHome">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-function">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/HeapMaximoPaciente.kt</url>
-          <line>7</line>
-          <properties class="com.example.filamed2.HeapMaximoPaciente" method="inserir">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
