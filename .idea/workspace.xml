@@ -10,19 +10,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="41d5d62c-d457-4fc0-9614-726bb08ff3f2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/Enfileiravel.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/FilaPrioridade.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/filamed2_jar/filamed2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/filamed2_jar/filamed2.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/Application.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/Application.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/CadastroController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/CadastroController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/HeapMaximoPaciente.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/HeapingPaciente.kt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/HomeController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/HomeController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/Paciente.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/Paciente.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/PrioridadeController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/PrioridadeController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/TelaInicialController.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/filamed2/cadastro-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/filamed2/cadastro-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/filamed2/home-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/filamed2/home-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/filamed2/prioridade-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/filamed2/prioridade-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,11 +144,27 @@
       <workItem from="1715109544736" duration="2552000" />
       <workItem from="1715112149507" duration="211000" />
       <workItem from="1715115625617" duration="27000" />
-      <workItem from="1715170092711" duration="5308000" />
+      <workItem from="1715170092711" duration="11439000" />
+      <workItem from="1715186315071" duration="7136000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="kotlin-function">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/HomeController.kt</url>
+          <line>68</line>
+          <properties class="com.example.filamed2.HomeController" method="desenfileirarPaciente">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

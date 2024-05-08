@@ -23,6 +23,11 @@ class PrioridadeController {
     private var qtdPacientesEnfileirados = 0
     private lateinit var fila: FilaPrioridade
 
+    private var qtdCriancas: Int = 0
+    private var qtdAdolescentes: Int = 0
+    private var qtdAdultos: Int = 0
+    private var qtdIdosos: Int = 0
+
     private lateinit var stage: Stage
     private lateinit var scene: Scene
     private lateinit var root: Parent
@@ -53,6 +58,8 @@ class PrioridadeController {
     private fun atualizarDadosTelaHome(loader: FXMLLoader) {
         val homecontroller: HomeController = loader.getController()
 
+        val dataNascimentoAtual = dataNascimento
+
         nomeCompleto = fila.espiar()?.nomeCompleto ?: "Erro ao obter nome"
         dataNascimento = (fila.espiar()?.dataNascimento ?: "Erro ao obter idade") as LocalDate
 
@@ -69,15 +76,30 @@ class PrioridadeController {
         }
 
         var dataAtual: LocalDate = LocalDate.now()
-        val periodo: Period = Period.between(dataNascimento, dataAtual)
+        var periodo: Period = Period.between(dataNascimentoAtual, dataAtual)
+        var idade: Int = periodo.years
 
-        val idade: String = periodo.years.toString()
+        if (idade in 0..11) {
+            qtdCriancas++
+        } else if (idade in 12..17) {
+            qtdAdolescentes++
+        } else if (idade in 18..59) {
+            qtdAdultos++
+        } else if (idade >= 60) {
+            qtdIdosos++
+        }
 
-        homecontroller.setDadosHome(nomeCompleto, idade, prioridadeString, qtdPacientesEnfileirados, fila)
+        periodo = Period.between(dataNascimento, dataAtual)
+        idade = periodo.years
+
+
+        homecontroller.setDadosHome(nomeCompleto, idade.toString(), prioridadeString, qtdPacientesEnfileirados, fila,
+            qtdCriancas, qtdAdolescentes, qtdAdultos, qtdIdosos)
     }
 
     fun setDados(nomeCompleto: String, cpf: String, sexo: Char, dataNascimento: LocalDate, relatoQueixasSintomas: String,
-                 qtdPacientesEnfileirados: Int, fila: FilaPrioridade) {
+                 qtdPacientesEnfileirados: Int, fila: FilaPrioridade, qtdCriancas: Int, qtdAdolescentes: Int,
+                 qtdAdultos: Int, qtdIdosos: Int) {
         this.nomeCompleto = nomeCompleto
         this.cpf = cpf
         this.sexo = sexo
@@ -85,6 +107,10 @@ class PrioridadeController {
         this.relatoQueixasSintomas = relatoQueixasSintomas
         this.qtdPacientesEnfileirados = qtdPacientesEnfileirados
         this.fila = fila
+        this.qtdCriancas = qtdCriancas
+        this.qtdAdolescentes = qtdAdolescentes
+        this.qtdAdultos = qtdAdultos
+        this.qtdIdosos = qtdIdosos
     }
 
 

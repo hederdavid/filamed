@@ -20,7 +20,7 @@
          <Font name="System Bold" size="22.0" />
       </font>
    </Label>
-   <Pane prefHeight="86.0" prefWidth="333.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0, 0, 0);">
+   <Pane prefHeight="79.0" prefWidth="335.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0, 0, 0);">
       <children>
          <VBox alignment="CENTER" layoutX="98.0" layoutY="10.0" prefHeight="41.0" prefWidth="237.0">
             <children>
@@ -41,7 +41,7 @@
                </Label>
             </children>
          </VBox>
-         <Pane layoutY="-1.0" prefHeight="88.0" prefWidth="98.0" style="-fx-background-color: #0480C4; -fx-background-radius: 15 0 0 15;">
+         <Pane layoutY="-1.0" prefHeight="80.0" prefWidth="98.0" style="-fx-background-color: #0480C4; -fx-background-radius: 15 0 0 15;">
             <children>
                <ImageView fitHeight="41.0" fitWidth="50.0" layoutX="31.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
                   <image>
@@ -52,7 +52,7 @@
          </Pane>
       </children>
    </Pane>
-   <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0, 0, 0);">
+   <Pane prefHeight="220.0" prefWidth="335.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0, 0, 0);">
       <children>
          <Pane prefHeight="41.0" prefWidth="335.0" style="-fx-background-color: #0480C4; -fx-background-radius: 15 15 0 0;">
             <children>
@@ -71,12 +71,28 @@
             <children>
                <Label fx:id="nomeProximoPaciente" alignment="CENTER" contentDisplay="CENTER" text="NENHUM PACIENTE NA FILA" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
                   <font>
-                     <Font size="15.0" />
+                     <Font size="17.0" />
                   </font>
                </Label>
             </children>
          </VBox>
-         <VBox alignment="TOP_CENTER" layoutY="90.0" prefHeight="27.0" prefWidth="335.0">
+         <VBox alignment="TOP_CENTER" layoutY="87.0" prefHeight="27.0" prefWidth="335.0">
+            <children>
+               <Label fx:id="idadeProximoPaciente1" text="A0" textAlignment="CENTER" wrapText="true">
+                  <font>
+                     <Font size="15.0" />
+                  </font>
+                  <graphic>
+                     <Label text="Senha:" textAlignment="CENTER" wrapText="true">
+                        <font>
+                           <Font size="15.0" />
+                        </font>
+                     </Label>
+                  </graphic>
+               </Label>
+            </children>
+         </VBox>
+         <VBox alignment="TOP_CENTER" layoutY="118.0" prefHeight="27.0" prefWidth="335.0">
             <children>
                <Label fx:id="idadeProximoPaciente" text="0" textAlignment="CENTER" wrapText="true">
                   <font>
@@ -92,18 +108,22 @@
                </Label>
             </children>
          </VBox>
-         <Pane layoutX="43.0" layoutY="128.0" prefHeight="47.0" prefWidth="246.0" style="-fx-background-radius: 15; -fx-background-color: #03537F;">
+         <Pane layoutX="73.0" layoutY="154.0" prefHeight="59.0" prefWidth="203.0" style="-fx-background-radius: 15; -fx-background-color: #03537F;">
             <children>
-               <Label layoutX="32.0" layoutY="12.0" text="PRIORIDADE:" textFill="WHITE">
-                  <font>
-                     <Font size="17.0" />
-                  </font>
-               </Label>
-               <Label fx:id="prioridadeDoPaciente" layoutX="146.0" layoutY="12.0" prefHeight="25.0" prefWidth="91.0" text="Não definida" textFill="WHITE">
-                  <font>
-                     <Font size="14.0" />
-                  </font>
-               </Label>
+               <VBox alignment="CENTER" layoutX="-1.0" layoutY="-3.0" prefHeight="64.0" prefWidth="203.0">
+                  <children>
+                     <Label text="PRIORIDADE:" textFill="WHITE">
+                        <font>
+                           <Font size="17.0" />
+                        </font>
+                     </Label>
+                     <Label fx:id="prioridadeDoPaciente" alignment="CENTER" prefHeight="26.0" prefWidth="234.0" text="NÃO DEFINIDA" textFill="WHITE">
+                        <font>
+                           <Font size="14.0" />
+                        </font>
+                     </Label>
+                  </children>
+               </VBox>
             </children>
          </Pane>
       </children>
@@ -112,61 +132,90 @@
       <children>
          <Pane prefHeight="41.0" prefWidth="335.0" style="-fx-background-color: #0480C4; -fx-background-radius: 15 15 0 0;">
             <children>
-               <Label alignment="CENTER" contentDisplay="CENTER" layoutX="73.0" layoutY="8.0" text="Pacientes por faixa etária" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS">
-                  <font>
-                     <Font size="17.0" />
-                  </font>
-               </Label>
+               <VBox alignment="CENTER" layoutY="1.0" prefHeight="41.0" prefWidth="335.0">
+                  <children>
+                     <Label alignment="CENTER" contentDisplay="CENTER" text="Pacientes por faixa etária" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS">
+                        <font>
+                           <Font size="17.0" />
+                        </font>
+                     </Label>
+                  </children>
+               </VBox>
             </children>
          </Pane>
          <Pane layoutY="41.0" prefHeight="35.0" prefWidth="335.0" style="-fx-background-color: #FFFFFF;">
             <children>
-               <Label alignment="CENTER" contentDisplay="CENTER" layoutX="12.0" layoutY="9.0" text="Crianças" textAlignment="CENTER">
-                  <font>
-                     <Font size="13.0" />
-                  </font>
-               </Label>
-               <Label alignment="CENTER" contentDisplay="CENTER" layoutX="114.0" layoutY="11.0" text="0" textAlignment="CENTER">
-                  <font>
-                     <Font size="13.0" />
-                  </font>
-               </Label>
+               <VBox alignment="CENTER_LEFT" layoutX="13.0" prefHeight="35.0" prefWidth="85.0">
+                  <children>
+                     <Label alignment="CENTER" contentDisplay="CENTER" text="Crianças" textAlignment="CENTER">
+                        <font>
+                           <Font size="13.0" />
+                        </font>
+                     </Label>
+                  </children>
+               </VBox>
+               <VBox alignment="CENTER_LEFT" layoutX="112.0" prefHeight="38.0" prefWidth="223.0">
+                  <children>
+                     <Label fx:id="qtdCriancasLabel" alignment="CENTER" contentDisplay="CENTER" text="0" textAlignment="CENTER">
+                        <font>
+                           <Font size="13.0" />
+                        </font>
+                     </Label>
+                  </children>
+               </VBox>
             </children>
          </Pane>
          <Pane layoutY="76.0" prefHeight="35.0" prefWidth="335.0" style="-fx-background-color: #AFD7FE;">
             <children>
-               <Label alignment="CENTER" contentDisplay="CENTER" layoutX="12.0" layoutY="8.0" text="Adolescentes" textAlignment="CENTER">
-                  <font>
-                     <Font size="13.0" />
-                  </font>
-               </Label>
-               <Label alignment="CENTER" contentDisplay="CENTER" layoutX="114.0" layoutY="8.0" text="0" textAlignment="CENTER">
-                  <font>
-                     <Font size="13.0" />
-                  </font>
-               </Label>
+               <VBox alignment="CENTER_LEFT" layoutX="12.0" prefHeight="35.0" prefWidth="77.0">
+                  <children>
+                     <Label alignment="CENTER" contentDisplay="CENTER" text="Adolescentes" textAlignment="CENTER">
+                        <font>
+                           <Font size="13.0" />
+                        </font>
+                     </Label>
+                  </children>
+               </VBox>
+               <VBox alignment="CENTER_LEFT" layoutX="112.0" prefHeight="38.0" prefWidth="223.0">
+                  <children>
+                     <Label fx:id="qtdAdolescentesLabel" alignment="CENTER" contentDisplay="CENTER" text="0" textAlignment="CENTER">
+                        <font>
+                           <Font size="13.0" />
+                        </font>
+                     </Label>
+                  </children>
+               </VBox>
             </children></Pane>
          <Pane layoutY="111.0" prefHeight="35.0" prefWidth="335.0" style="-fx-background-color: #FFFFFF;">
             <children>
+               <VBox alignment="CENTER_LEFT" layoutX="112.0" prefHeight="38.0" prefWidth="223.0">
+                  <children>
+                     <Label fx:id="qtdAdultosLabel" alignment="CENTER" contentDisplay="CENTER" text="0" textAlignment="CENTER">
+                        <font>
+                           <Font size="13.0" />
+                        </font>
+                     </Label>
+                  </children>
+               </VBox>
                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="12.0" layoutY="8.0" text="Adultos" textAlignment="CENTER">
                   <font>
                      <Font size="13.0" />
                   </font>
                </Label>
-               <Label alignment="CENTER" contentDisplay="CENTER" layoutX="114.0" layoutY="8.0" text="0" textAlignment="CENTER">
-                  <font>
-                     <Font size="13.0" />
-                  </font>
-               </Label>
-            </children></Pane>
+            </children>
+         </Pane>
          <Pane layoutY="146.0" prefHeight="35.0" prefWidth="335.0" style="-fx-background-color: #AFD7FE; -fx-background-radius: 0 0 15 15;">
             <children>
+               <VBox alignment="CENTER_LEFT" layoutX="112.0" prefHeight="38.0" prefWidth="223.0">
+                  <children>
+                     <Label fx:id="qtdIdososLabel" alignment="CENTER" contentDisplay="CENTER" text="0" textAlignment="CENTER">
+                        <font>
+                           <Font size="13.0" />
+                        </font>
+                     </Label>
+                  </children>
+               </VBox>
                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="12.0" layoutY="7.0" text="Idosos" textAlignment="CENTER">
-                  <font>
-                     <Font size="13.0" />
-                  </font>
-               </Label>
-               <Label alignment="CENTER" contentDisplay="CENTER" layoutX="114.0" layoutY="8.0" text="0" textAlignment="CENTER">
                   <font>
                      <Font size="13.0" />
                   </font>
@@ -221,6 +270,7 @@
          </Button>
          <Label layoutX="240.0" layoutY="117.0" text="Consultar Filas" textFill="WHITE" />
          <Label layoutX="134.0" layoutY="117.0" text="Verificar CPF" textFill="WHITE" />
+         <Button layoutX="58.0" layoutY="24.0" mnemonicParsing="false" onAction="#desenfileirarPaciente" text="Button" />
       </children>
    </Pane>
 </VBox>

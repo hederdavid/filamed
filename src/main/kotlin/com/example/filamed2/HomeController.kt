@@ -10,6 +10,8 @@ import javafx.scene.Parent
 import javafx.scene.Scene
 import javafx.scene.control.Label
 import javafx.stage.Stage
+import java.time.LocalDate
+import java.time.Period
 
 
 class HomeController {
@@ -27,8 +29,21 @@ class HomeController {
     private lateinit var pacientesNaFila: Label
 
 
+    @FXML
+    lateinit var qtdCriancasLabel: Label
+    @FXML
+    lateinit var qtdAdolescentesLabel: Label
+    @FXML
+    lateinit var qtdAdultosLabel: Label
+    @FXML
+    lateinit var qtdIdososLabel: Label
+
     private var fila = FilaPrioridade(10)
     private var qtdPacientesEnfileirados: Int = 0
+    private var qtdCriancas: Int = 0
+    private var qtdAdolescentes: Int = 0
+    private var qtdAdultos: Int = 0
+    private var qtdIdosos: Int = 0
 
     private lateinit var stage: Stage
     private lateinit var scene: Scene
@@ -51,17 +66,84 @@ class HomeController {
         stage.show()
     }
 
-    fun setDadosHome(nome: String, idade: String, prioridade: String, qtdPacientesEnfileirados: Int, fila: FilaPrioridade) {
-        nomeProximoPaciente.text = nome
-        idadeProximoPaciente.text = idade
-        prioridadeDoPaciente.text = prioridade
+    fun desenfileirarPaciente(event: ActionEvent) {
+        if (!fila.estaVazia()) {
+            val dataAtual: LocalDate = LocalDate.now()
+            val periodo: Period = Period.between(fila.espiar()?.dataNascimento, dataAtual)
+            val idade: String = periodo.years.toString()
+            when {
+                idade.toInt() in 0..11 && qtdCriancas != 0 -> qtdCriancas--
+                idade.toInt() in 12..17 && qtdAdolescentes != 0 -> qtdAdolescentes--
+                idade.toInt() in 18..59 && qtdAdultos != 0 -> qtdAdultos--
+                idade.toInt() >= 60 && qtdIdosos != 0 -> qtdIdosos--
+            }
+
+        }
+
+
+        fila.desenfileirar()
+
+        if (qtdPacientesEnfileirados != 0) {
+            qtdPacientesEnfileirados--
+        }
+
         pacientesNaFila.text = qtdPacientesEnfileirados.toString()
+
+        if (fila.espiar() == null) {
+            nomeProximoPaciente.text = "NENHUM PACIENTE NA FILA"
+            idadeProximoPaciente.text = "0"
+            prioridadeDoPaciente.text = "NÃO DEFINIDA"
+            qtdCriancas = 0
+            qtdAdolescentes = 0
+            qtdAdultos = 0
+            qtdIdosos = 0
+
+        } else {
+            nomeProximoPaciente.text = fila.espiar()?.nomeCompleto
+
+            val dataAtual: LocalDate = LocalDate.now()
+            val periodo: Period = Period.between(fila.espiar()?.dataNascimento, dataAtual)
+            val idade: String = periodo.years.toString()
+
+            idadeProximoPaciente.text = idade
+
+            when (fila.espiar()?.prioridade) {
+                5 -> prioridadeDoPaciente.text = "Emergência"
+                4 -> prioridadeDoPaciente.text = "Muita Urgência"
+                3 -> prioridadeDoPaciente.text = "Urgência"
+                2 -> prioridadeDoPaciente.text = "Pouca Urgência"
+                1 -> prioridadeDoPaciente.text = "Não Urgência"
+                else -> prioridadeDoPaciente.text = "NÃO DEFINIDA"
+            }
+        }
+        qtdCriancasLabel.text = qtdCriancas.toString()
+        qtdAdolescentesLabel.text = qtdAdolescentes.toString()
+        qtdAdultosLabel.text = qtdAdultos.toString()
+        qtdIdososLabel.text = qtdIdosos.toString()
+    }
+
+    fun setDadosHome(nome: String, idade: String, prioridade: String, qtdPacientesEnfileirados: Int, fila: FilaPrioridade,
+                     qtdCriancas: Int, qtdAdolescentes: Int, qtdAdultos: Int, qtdIdosos: Int) {
+        this.nomeProximoPaciente.text = nome
+        this.idadeProximoPaciente.text = idade
+        this.prioridadeDoPaciente.text = prioridade
+        this.pacientesNaFila.text = qtdPacientesEnfileirados.toString()
         this.fila = fila
         this.qtdPacientesEnfileirados = qtdPacientesEnfileirados
+
+        this.qtdCriancasLabel.text = qtdCriancas.toString()
+        this.qtdAdolescentesLabel.text = qtdAdolescentes.toString()
+        this.qtdAdultosLabel.text = qtdAdultos.toString()
+        this.qtdIdososLabel.text = qtdIdosos.toString()
+
+        this.qtdCriancas = qtdCriancas
+        this.qtdAdolescentes = qtdAdolescentes
+        this.qtdAdultos = qtdAdultos
+        this.qtdIdosos = qtdIdosos
     }
 
     private fun atualizarDadosTelaCadastro(loader: FXMLLoader) {
         val cadastroController: CadastroController = loader.getController()
-        cadastroController.setDadosCadastro(fila, qtdPacientesEnfileirados)
+        cadastroController.setDadosCadastro(fila, qtdPacientesEnfileirados, qtdCriancas, qtdAdolescentes, qtdAdultos, qtdIdosos)
     }
 }

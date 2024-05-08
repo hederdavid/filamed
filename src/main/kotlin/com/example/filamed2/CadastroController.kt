@@ -24,6 +24,10 @@ class CadastroController {
     @FXML
     lateinit var relatoQueixasSintomasField: TextField
 
+    private var qtdCriancas: Int = 0
+    private var qtdAdolescentes: Int = 0
+    private var qtdAdultos: Int = 0
+    private var qtdIdosos: Int = 0
 
     private lateinit var fila: FilaPrioridade
     private var qtdCacientesEnfileirados = 0
@@ -45,9 +49,14 @@ class CadastroController {
         stage.show()
     }
 
-    fun setDadosCadastro(fila: FilaPrioridade, qtdCacientesEnfileirados: Int) {
+    fun setDadosCadastro(fila: FilaPrioridade, qtdCacientesEnfileirados: Int, qtdCriancas: Int, qtdAdolescentes: Int,
+                         qtdAdultos: Int, qtdIdosos: Int) {
         this.fila = fila
         this.qtdCacientesEnfileirados = qtdCacientesEnfileirados
+        this.qtdCriancas = qtdCriancas
+        this.qtdAdolescentes = qtdAdolescentes
+        this.qtdAdultos = qtdAdultos
+        this.qtdIdosos = qtdIdosos
     }
 
     private fun atualizarDadosTelaPrioridade(loader: FXMLLoader) {
@@ -62,7 +71,13 @@ class CadastroController {
         val relatoQueixasSintomas: String = relatoQueixasSintomasField.text
         val prioridadeController: PrioridadeController = loader.getController()
 
+
+
         prioridadeController.setDados(nomeCompleto, cpf, sexo, dataNascimento, relatoQueixasSintomas,
-                qtdCacientesEnfileirados, fila)
+                qtdCacientesEnfileirados, fila, qtdCriancas, qtdAdolescentes, qtdAdultos, qtdIdosos)
+    }
+
+    private fun isDadosInseridosCorretos() {
+
     }
 }
