@@ -32,6 +32,13 @@ class CadastroController {
     private lateinit var fila: FilaPrioridade
     private var qtdCacientesEnfileirados = 0
 
+    private var qtdPrioridadeEmergencia = 0
+    private var qtdPrioridadeMuitaUrgencia = 0
+    private var qtdPrioridadeUrgencia = 0
+    private var qtdPrioridadePoucaUrgencia = 0
+    private var qtdPrioridadeNaoUrgente = 0
+    private var senha: String = "Senha não definida"
+
     private lateinit var stage: Stage
     private lateinit var scene: Scene
     private lateinit var root: Parent
@@ -50,13 +57,22 @@ class CadastroController {
     }
 
     fun setDadosCadastro(fila: FilaPrioridade, qtdCacientesEnfileirados: Int, qtdCriancas: Int, qtdAdolescentes: Int,
-                         qtdAdultos: Int, qtdIdosos: Int) {
+                         qtdAdultos: Int, qtdIdosos: Int, qtdPrioridadeEmergencia: Int, qtdPrioridadeMuitaUrgencia:
+                         Int, qtdPrioridadeUrgencia: Int, qtdPrioridadePoucaUrgencia: Int, qtdPrioridadeNaoUrgente:
+                         Int, senha: String) {
         this.fila = fila
         this.qtdCacientesEnfileirados = qtdCacientesEnfileirados
         this.qtdCriancas = qtdCriancas
         this.qtdAdolescentes = qtdAdolescentes
         this.qtdAdultos = qtdAdultos
         this.qtdIdosos = qtdIdosos
+
+        this.qtdPrioridadeEmergencia = qtdPrioridadeEmergencia
+        this.qtdPrioridadeMuitaUrgencia = qtdPrioridadeMuitaUrgencia
+        this.qtdPrioridadeUrgencia = qtdPrioridadeUrgencia
+        this.qtdPrioridadePoucaUrgencia = qtdPrioridadePoucaUrgencia
+        this.qtdPrioridadeNaoUrgente = qtdPrioridadeNaoUrgente
+        this.senha = senha
     }
 
     private fun atualizarDadosTelaPrioridade(loader: FXMLLoader) {
@@ -74,7 +90,8 @@ class CadastroController {
 
 
         prioridadeController.setDados(nomeCompleto, cpf, sexo, dataNascimento, relatoQueixasSintomas,
-                qtdCacientesEnfileirados, fila, qtdCriancas, qtdAdolescentes, qtdAdultos, qtdIdosos)
+                qtdCacientesEnfileirados, fila, qtdCriancas, qtdAdolescentes, qtdAdultos, qtdIdosos, qtdPrioridadeEmergencia,
+            qtdPrioridadeMuitaUrgencia, qtdPrioridadeUrgencia, qtdPrioridadePoucaUrgencia, qtdPrioridadeNaoUrgente, senha)
     }
 
     private fun isDadosInseridosCorretos() {

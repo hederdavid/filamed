@@ -78,7 +78,7 @@
          </VBox>
          <VBox alignment="TOP_CENTER" layoutY="87.0" prefHeight="27.0" prefWidth="335.0">
             <children>
-               <Label fx:id="idadeProximoPaciente1" text="A0" textAlignment="CENTER" wrapText="true">
+               <Label fx:id="senhaLabel" text="A0" textAlignment="CENTER" wrapText="true">
                   <font>
                      <Font size="15.0" />
                   </font>

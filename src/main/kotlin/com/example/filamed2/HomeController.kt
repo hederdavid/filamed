@@ -18,16 +18,12 @@ class HomeController {
 
     @FXML
     private lateinit var idadeProximoPaciente: Label
-
     @FXML
     private lateinit var nomeProximoPaciente: Label
-
     @FXML
     private lateinit var prioridadeDoPaciente: Label
-
     @FXML
     private lateinit var pacientesNaFila: Label
-
 
     @FXML
     lateinit var qtdCriancasLabel: Label
@@ -38,12 +34,22 @@ class HomeController {
     @FXML
     lateinit var qtdIdososLabel: Label
 
+    @FXML
+    lateinit var senhaLabel: Label
+
     private var fila = FilaPrioridade(10)
     private var qtdPacientesEnfileirados: Int = 0
     private var qtdCriancas: Int = 0
     private var qtdAdolescentes: Int = 0
     private var qtdAdultos: Int = 0
     private var qtdIdosos: Int = 0
+
+    private var qtdPrioridadeEmergencia = 0
+    private var qtdPrioridadeMuitaUrgencia = 0
+    private var qtdPrioridadeUrgencia = 0
+    private var qtdPrioridadePoucaUrgencia = 0
+    private var qtdPrioridadeNaoUrgente = 0
+    private var senha: String = "Senha não definida"
 
     private lateinit var stage: Stage
     private lateinit var scene: Scene
@@ -97,6 +103,7 @@ class HomeController {
             qtdAdolescentes = 0
             qtdAdultos = 0
             qtdIdosos = 0
+            senhaLabel.text = ""
 
         } else {
             nomeProximoPaciente.text = fila.espiar()?.nomeCompleto
@@ -106,6 +113,7 @@ class HomeController {
             val idade: String = periodo.years.toString()
 
             idadeProximoPaciente.text = idade
+            this.senhaLabel.text = fila.espiar()?.senha
 
             when (fila.espiar()?.prioridade) {
                 5 -> prioridadeDoPaciente.text = "Emergência"
@@ -123,11 +131,14 @@ class HomeController {
     }
 
     fun setDadosHome(nome: String, idade: String, prioridade: String, qtdPacientesEnfileirados: Int, fila: FilaPrioridade,
-                     qtdCriancas: Int, qtdAdolescentes: Int, qtdAdultos: Int, qtdIdosos: Int) {
+                     qtdCriancas: Int, qtdAdolescentes: Int, qtdAdultos: Int, qtdIdosos: Int, qtdPrioridadeEmergencia: Int,
+                     qtdPrioridadeMuitaUrgencia: Int, qtdPrioridadeUrgencia: Int, qtdPrioridadePoucaUrgencia: Int,
+                     qtdPrioridadeNaoUrgente: Int, senha: String) {
         this.nomeProximoPaciente.text = nome
         this.idadeProximoPaciente.text = idade
         this.prioridadeDoPaciente.text = prioridade
         this.pacientesNaFila.text = qtdPacientesEnfileirados.toString()
+        this.senhaLabel.text = fila.espiar()?.senha
         this.fila = fila
         this.qtdPacientesEnfileirados = qtdPacientesEnfileirados
 
@@ -140,10 +151,20 @@ class HomeController {
         this.qtdAdolescentes = qtdAdolescentes
         this.qtdAdultos = qtdAdultos
         this.qtdIdosos = qtdIdosos
+
+        this.qtdPrioridadeEmergencia = qtdPrioridadeEmergencia
+        this.qtdPrioridadeMuitaUrgencia = qtdPrioridadeMuitaUrgencia
+        this.qtdPrioridadeUrgencia = qtdPrioridadeUrgencia
+        this.qtdPrioridadePoucaUrgencia = qtdPrioridadePoucaUrgencia
+        this.qtdPrioridadeNaoUrgente = qtdPrioridadeNaoUrgente
+        this.senha = senha
+
     }
 
     private fun atualizarDadosTelaCadastro(loader: FXMLLoader) {
         val cadastroController: CadastroController = loader.getController()
-        cadastroController.setDadosCadastro(fila, qtdPacientesEnfileirados, qtdCriancas, qtdAdolescentes, qtdAdultos, qtdIdosos)
+        cadastroController.setDadosCadastro(fila, qtdPacientesEnfileirados, qtdCriancas, qtdAdolescentes, qtdAdultos,
+            qtdIdosos, qtdPrioridadeEmergencia, qtdPrioridadeMuitaUrgencia, qtdPrioridadeUrgencia, qtdPrioridadePoucaUrgencia,
+            qtdPrioridadeNaoUrgente, senha)
     }
 }

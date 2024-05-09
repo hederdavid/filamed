@@ -28,6 +28,13 @@ class PrioridadeController {
     private var qtdAdultos: Int = 0
     private var qtdIdosos: Int = 0
 
+    private var qtdPrioridadeEmergencia = 0
+    private var qtdPrioridadeMuitaUrgencia = 0
+    private var qtdPrioridadeUrgencia = 0
+    private var qtdPrioridadePoucaUrgencia = 0
+    private var qtdPrioridadeNaoUrgente = 0
+    private var senha: String = "Senha não definida"
+
     private lateinit var stage: Stage
     private lateinit var scene: Scene
     private lateinit var root: Parent
@@ -51,6 +58,7 @@ class PrioridadeController {
 
     private fun inserirPacienteCadastrado() {
         val paciente = Paciente(nomeCompleto, cpf, sexo, dataNascimento, relatoQueixasSintomas, prioridade)
+        paciente.senha = this.senha
         fila.enfileirar(paciente)
         qtdPacientesEnfileirados++
     }
@@ -94,12 +102,14 @@ class PrioridadeController {
 
 
         homecontroller.setDadosHome(nomeCompleto, idade.toString(), prioridadeString, qtdPacientesEnfileirados, fila,
-            qtdCriancas, qtdAdolescentes, qtdAdultos, qtdIdosos)
+            qtdCriancas, qtdAdolescentes, qtdAdultos, qtdIdosos, qtdPrioridadeEmergencia, qtdPrioridadeMuitaUrgencia,
+            qtdPrioridadeUrgencia, qtdPrioridadePoucaUrgencia, qtdPrioridadeNaoUrgente, senha)
     }
 
     fun setDados(nomeCompleto: String, cpf: String, sexo: Char, dataNascimento: LocalDate, relatoQueixasSintomas: String,
                  qtdPacientesEnfileirados: Int, fila: FilaPrioridade, qtdCriancas: Int, qtdAdolescentes: Int,
-                 qtdAdultos: Int, qtdIdosos: Int) {
+                 qtdAdultos: Int, qtdIdosos: Int, qtdPrioridadeEmergencia: Int, qtdPrioridadeMuitaUrgencia: Int,
+                 qtdPrioridadeUrgencia: Int, qtdPrioridadePoucaUrgencia: Int, qtdPrioridadeNaoUrgente: Int, senha: String) {
         this.nomeCompleto = nomeCompleto
         this.cpf = cpf
         this.sexo = sexo
@@ -111,30 +121,47 @@ class PrioridadeController {
         this.qtdAdolescentes = qtdAdolescentes
         this.qtdAdultos = qtdAdultos
         this.qtdIdosos = qtdIdosos
+
+        this.qtdPrioridadeEmergencia = qtdPrioridadeEmergencia
+        this.qtdPrioridadeMuitaUrgencia = qtdPrioridadeMuitaUrgencia
+        this.qtdPrioridadeUrgencia = qtdPrioridadeUrgencia
+        this.qtdPrioridadePoucaUrgencia = qtdPrioridadePoucaUrgencia
+        this.qtdPrioridadeNaoUrgente = qtdPrioridadeNaoUrgente
+        this.senha = senha
     }
 
 
     fun prioridadeEmergencia(event: ActionEvent) {
         this.prioridade = 5
+        this.qtdPrioridadeEmergencia++
+        this.senha = "A$qtdPrioridadeEmergencia"
         chamarTelaHome(event)
     }
 
     fun prioridadeMuitaUrgencia(event: ActionEvent) {
         this.prioridade = 4
+        this.qtdPrioridadeMuitaUrgencia++
+        this.senha = "O$qtdPrioridadeMuitaUrgencia"
         chamarTelaHome(event)
     }
 
     fun prioridadeUrgencia(event: ActionEvent) {
         this.prioridade = 3
+        this.qtdPrioridadeUrgencia++
+        this.senha = "Y$qtdPrioridadeUrgencia"
         chamarTelaHome(event)
     }
 
     fun prioridadePoucaUrgencia(event: ActionEvent) {
         this.prioridade = 2
+        this.qtdPrioridadePoucaUrgencia++
+        this.senha = "G$qtdPrioridadePoucaUrgencia"
         chamarTelaHome(event)
     }
     fun prioridadeNaoUrgencia(event: ActionEvent) {
         this.prioridade = 1
+        this.qtdPrioridadeNaoUrgente++
+        this.senha = "B$qtdPrioridadeNaoUrgente"
         chamarTelaHome(event)
     }
 }
