@@ -15,7 +15,7 @@
    <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
-   <Label contentDisplay="TOP" text="SISTEMA DE GERENCIAMENTO DE PACIENTES" textAlignment="CENTER" textFill="#0480c4" textOverrun="CLIP" wrapText="true">
+   <Label contentDisplay="TOP" prefHeight="70.0" prefWidth="335.0" text="SISTEMA DE GERENCIAMENTO DE PACIENTES" textAlignment="CENTER" textFill="#0480c4" textOverrun="CLIP" wrapText="true">
       <font>
          <Font name="System Bold" size="22.0" />
       </font>

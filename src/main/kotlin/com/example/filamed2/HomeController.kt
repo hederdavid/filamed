@@ -158,7 +158,6 @@ class HomeController {
         this.qtdPrioridadePoucaUrgencia = qtdPrioridadePoucaUrgencia
         this.qtdPrioridadeNaoUrgente = qtdPrioridadeNaoUrgente
         this.senha = senha
-
     }
 
     private fun atualizarDadosTelaCadastro(loader: FXMLLoader) {

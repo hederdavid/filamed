@@ -106,7 +106,7 @@ class PrioridadeController {
             qtdPrioridadeUrgencia, qtdPrioridadePoucaUrgencia, qtdPrioridadeNaoUrgente, senha)
     }
 
-    fun setDados(nomeCompleto: String, cpf: String, sexo: Char, dataNascimento: LocalDate, relatoQueixasSintomas: String,
+    fun setDadosPrioridade(nomeCompleto: String, cpf: String, sexo: Char, dataNascimento: LocalDate, relatoQueixasSintomas: String,
                  qtdPacientesEnfileirados: Int, fila: FilaPrioridade, qtdCriancas: Int, qtdAdolescentes: Int,
                  qtdAdultos: Int, qtdIdosos: Int, qtdPrioridadeEmergencia: Int, qtdPrioridadeMuitaUrgencia: Int,
                  qtdPrioridadeUrgencia: Int, qtdPrioridadePoucaUrgencia: Int, qtdPrioridadeNaoUrgente: Int, senha: String) {
@@ -134,7 +134,7 @@ class PrioridadeController {
     fun prioridadeEmergencia(event: ActionEvent) {
         this.prioridade = 5
         this.qtdPrioridadeEmergencia++
-        this.senha = "A$qtdPrioridadeEmergencia"
+        this.senha = "R$qtdPrioridadeEmergencia"
         chamarTelaHome(event)
     }
 

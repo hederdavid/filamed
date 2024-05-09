@@ -142,5 +142,13 @@ class FilaPrioridade(private val tamanho: Int = 10): Enfileiravel{
         return "FilaPrioridade(tamanho=$tamanho, pacientes=${pacientes.contentToString()}, ponteiroFim=$ponteiroFim)"
     }
 
+    fun size(): Int {
+        return pacientes.size
+    }
+
+    fun get(i: Int): Paciente? {
+        return pacientes[i]
+    }
+
 
 }

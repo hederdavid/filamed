@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader
 import javafx.scene.Node
 import javafx.scene.Parent
 import javafx.scene.Scene
+import javafx.scene.control.Alert
 import javafx.scene.control.TextField
 import javafx.stage.Stage
 import java.time.LocalDate
@@ -45,15 +46,26 @@ class CadastroController {
 
 
     fun carregarTelaPrioridade(event: ActionEvent) {
-        val loader = FXMLLoader(javaClass.getResource("prioridade-view.fxml"))
-        root = loader.load()
+        if (isDadosInseridosCorretos()) {
+            if (isCpfNaoCadastrado(cpfField.text)) {
+                if (isDataNascimentoCorreta(dataNascimentoField.text)) {
+                    val loader = FXMLLoader(javaClass.getResource("prioridade-view.fxml"))
+                    root = loader.load()
+                    atualizarDadosTelaPrioridade(loader)
+                    stage = (event.source as Node).scene.window as Stage
+                    scene = Scene(root)
+                    stage.scene = scene
+                    stage.show()
+                } else {
+                    exibirAlertaDataInvalida()
+                }
 
-        atualizarDadosTelaPrioridade(loader)
-
-        stage = (event.source as Node).scene.window as Stage
-        scene = Scene(root)
-        stage.scene = scene
-        stage.show()
+            } else {
+                exibirAlertaCpfJaCadastrado()
+            }
+        } else {
+            exibirAlertaCamposVazios()
+        }
     }
 
     fun setDadosCadastro(fila: FilaPrioridade, qtdCacientesEnfileirados: Int, qtdCriancas: Int, qtdAdolescentes: Int,
@@ -89,12 +101,70 @@ class CadastroController {
 
 
 
-        prioridadeController.setDados(nomeCompleto, cpf, sexo, dataNascimento, relatoQueixasSintomas,
+        prioridadeController.setDadosPrioridade(nomeCompleto, cpf, sexo, dataNascimento, relatoQueixasSintomas,
                 qtdCacientesEnfileirados, fila, qtdCriancas, qtdAdolescentes, qtdAdultos, qtdIdosos, qtdPrioridadeEmergencia,
             qtdPrioridadeMuitaUrgencia, qtdPrioridadeUrgencia, qtdPrioridadePoucaUrgencia, qtdPrioridadeNaoUrgente, senha)
     }
 
-    private fun isDadosInseridosCorretos() {
+    private fun isDadosInseridosCorretos(): Boolean {
+        if (nomeField.text.isNotBlank() && cpfField.text.isNotBlank() && sexoField.text.isNotBlank() &&
+            dataNascimentoField.text.isNotBlank() && relatoQueixasSintomasField.text.isNotBlank()) {
+            return true
+        } else {
+            return false
+        }
+    }
 
+    private fun exibirAlertaCamposVazios() {
+        val alert = Alert(Alert.AlertType.WARNING)
+        alert.title = "Campos vazios"
+        alert.headerText = "Por favor, preencha todos os campos."
+        alert.contentText = "Certifique-se de que todos os campos estão preenchidos."
+
+        alert.showAndWait()
+    }
+
+    private fun isDataNascimentoCorreta(data: String): Boolean {
+        val formatoData = DateTimeFormatter.ofPattern("dd/MM/yyyy")
+        try {
+            LocalDate.parse(data, formatoData)
+            return true
+        } catch (e: java.time.format.DateTimeParseException) {
+            return false
+        }
+    }
+
+    private fun exibirAlertaDataInvalida() {
+        val alert = Alert(Alert.AlertType.WARNING)
+        alert.title = "Data inválida"
+        alert.headerText = "Formato de data inválido."
+        alert.contentText = "Certifique-se de que a data está no formato DD/MM/AAAA. Exemplo: 05/11/2003"
+
+        alert.showAndWait()
+    }
+
+    private fun isCpfNaoCadastrado(cpf: String): Boolean {
+        val cpfFormatado = cpf.replace("[^\\d]".toRegex(), "")
+        var resultado = true
+
+        for (i in 0 until fila.size()) {
+            val paciente = fila.get(i)
+            val cpfPacienteJaCadastrado = paciente?.cpf?.replace("[^\\d]".toRegex(), "")
+            if (cpfPacienteJaCadastrado == cpfFormatado) {
+                resultado = false
+                break  // Interrompe o loop pois o CPF já foi encontrado
+            }
+        }
+
+        return resultado
+    }
+
+    private fun exibirAlertaCpfJaCadastrado() {
+        val alert = Alert(Alert.AlertType.WARNING)
+        alert.title = "CPF já cadastrado"
+        alert.headerText = "CPF já existente."
+        alert.contentText = "O CPF informado já está cadastrado no sistema."
+
+        alert.showAndWait()
     }
 }

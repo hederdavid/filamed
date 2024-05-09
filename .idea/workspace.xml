@@ -11,8 +11,9 @@
   <component name="ChangeListManager">
     <list default="true" id="41d5d62c-d457-4fc0-9614-726bb08ff3f2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/filamed2_jar/filamed2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/filamed2_jar/filamed2.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/Application.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/Application.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/CadastroController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/CadastroController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/FilaPrioridade.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/FilaPrioridade.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/HomeController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/HomeController.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/PrioridadeController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/PrioridadeController.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/filamed2/home-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/filamed2/home-view.fxml" afterDir="false" />
@@ -148,11 +149,26 @@
       <workItem from="1715197101449" duration="550000" />
       <workItem from="1715274386200" duration="93000" />
       <workItem from="1715274498883" duration="936000" />
-      <workItem from="1715275834237" duration="1693000" />
+      <workItem from="1715275834237" duration="5771000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="kotlin-function">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/CadastroController.kt</url>
+          <line>145</line>
+          <properties class="com.example.filamed2.CadastroController" method="isCpfNaoCadastrado">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
