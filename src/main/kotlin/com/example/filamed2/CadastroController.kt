@@ -144,12 +144,12 @@ class CadastroController {
     }
 
     private fun isCpfNaoCadastrado(cpf: String): Boolean {
-        val cpfFormatado = cpf.replace("[^\\d]".toRegex(), "")
+        val cpfFormatado = cpf.replace("[.\\-\\s]".toRegex(), "")
         var resultado = true
 
         for (i in 0 until fila.size()) {
             val paciente = fila.get(i)
-            val cpfPacienteJaCadastrado = paciente?.cpf?.replace("[^\\d]".toRegex(), "")
+            val cpfPacienteJaCadastrado = paciente?.cpf?.replace("[.\\-\\s]".toRegex(), "")
             if (cpfPacienteJaCadastrado == cpfFormatado) {
                 resultado = false
                 break  // Interrompe o loop pois o CPF já foi encontrado

@@ -52,8 +52,6 @@ class HelloApplication : Application() {
             }
         }
     }
-
-
 }
 
 fun main() {

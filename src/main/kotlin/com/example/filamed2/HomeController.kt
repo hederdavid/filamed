@@ -83,9 +83,7 @@ class HomeController {
                 idade.toInt() in 18..59 && qtdAdultos != 0 -> qtdAdultos--
                 idade.toInt() >= 60 && qtdIdosos != 0 -> qtdIdosos--
             }
-
         }
-
 
         fila.desenfileirar()
 

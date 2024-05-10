@@ -6,6 +6,7 @@ class FilaPrioridade(private val tamanho: Int = 10): Enfileiravel{
 
     private var pacientes: Array<Paciente?> = arrayOfNulls(tamanho)
     private var ponteiroFim = -1
+    private var quantidade = 0
 
     override fun enfileirar(paciente: Paciente) {
         if (!estaCheia()) {
@@ -13,6 +14,7 @@ class FilaPrioridade(private val tamanho: Int = 10): Enfileiravel{
             pacientes[ponteiroFim] = paciente
             paciente.dataHoraEnfileiramento = LocalDateTime.now()
             ajustarAcima(ponteiroFim)
+            quantidade++
         } else {
             println("Fila de Prioridades Cheia!")
         }
@@ -26,6 +28,7 @@ class FilaPrioridade(private val tamanho: Int = 10): Enfileiravel{
             ponteiroFim = ponteiroFim.dec()
             dadoRaiz?.dataHoraDesenfileiramento = LocalDateTime.now().toString()
             ajustarAbaixo(0)
+            quantidade--
         } else {
             println("Fila de Prioridades Vazia!")
         }
@@ -143,7 +146,7 @@ class FilaPrioridade(private val tamanho: Int = 10): Enfileiravel{
     }
 
     fun size(): Int {
-        return pacientes.size
+        return quantidade
     }
 
     fun get(i: Int): Paciente? {
