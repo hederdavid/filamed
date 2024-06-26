@@ -11,12 +11,8 @@
   <component name="ChangeListManager">
     <list default="true" id="41d5d62c-d457-4fc0-9614-726bb08ff3f2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/Application.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/Application.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/CadastroController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/CadastroController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/FilaPrioridade.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/FilaPrioridade.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/HomeController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/HomeController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/filamed2_jar/filamed2.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/PrioridadeController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/PrioridadeController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/filamed2/home-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/filamed2/home-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,30 +53,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Kotlin.ApplicationKt.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.HelloApplicationKt.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.HomeApplicationKt.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_directory_selection&quot;: &quot;C:/Users/Heder David/Downloads/filamed2/src/main/kotlin/com/example/filamed2&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Heder David/Documents/CinemaManagementSystem&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0997009&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Kotlin.ApplicationKt.executor": "Coverage",
+    "Kotlin.HelloApplicationKt.executor": "Run",
+    "Kotlin.HomeApplicationKt.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "C:/Users/Heder David/Downloads/filamed2/src/main/kotlin/com/example/filamed2",
+    "last_opened_file_path": "C:/Users/Heder David/Downloads/filamed-console",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0997009",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Heder David\Downloads\filamed2\target\classes\com\example\filamed2" />
@@ -149,26 +145,28 @@
       <workItem from="1715197101449" duration="550000" />
       <workItem from="1715274386200" duration="93000" />
       <workItem from="1715274498883" duration="936000" />
-      <workItem from="1715275834237" duration="5771000" />
+      <workItem from="1715275834237" duration="8168000" />
+      <workItem from="1715288500386" duration="1426000" />
+      <workItem from="1715297819942" duration="58000" />
+      <workItem from="1715352441161" duration="1777000" />
+      <workItem from="1715387711539" duration="45000" />
+      <workItem from="1715393871472" duration="513000" />
+      <workItem from="1715458784502" duration="104000" />
+      <workItem from="1715696184598" duration="141000" />
+      <workItem from="1715708658964" duration="48000" />
+      <workItem from="1715895026677" duration="1824000" />
+      <workItem from="1715901868609" duration="17000" />
+      <workItem from="1715969966029" duration="1925000" />
+      <workItem from="1716155191174" duration="636000" />
+      <workItem from="1719409292089" duration="312000" />
+      <workItem from="1719435079192" duration="1377000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="kotlin-function">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/CadastroController.kt</url>
-          <line>145</line>
-          <properties class="com.example.filamed2.CadastroController" method="isCpfNaoCadastrado">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/filamed2$ApplicationKt.ic" NAME="ApplicationKt Coverage Results" MODIFIED="1719435252969" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

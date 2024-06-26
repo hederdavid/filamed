@@ -100,7 +100,6 @@ class PrioridadeController {
         periodo = Period.between(dataNascimento, dataAtual)
         idade = periodo.years
 
-
         homecontroller.setDadosHome(nomeCompleto, idade.toString(), prioridadeString, qtdPacientesEnfileirados, fila,
             qtdCriancas, qtdAdolescentes, qtdAdultos, qtdIdosos, qtdPrioridadeEmergencia, qtdPrioridadeMuitaUrgencia,
             qtdPrioridadeUrgencia, qtdPrioridadePoucaUrgencia, qtdPrioridadeNaoUrgente, senha)
@@ -164,4 +163,5 @@ class PrioridadeController {
         this.senha = "B$qtdPrioridadeNaoUrgente"
         chamarTelaHome(event)
     }
+
 }
