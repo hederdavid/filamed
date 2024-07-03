@@ -72,6 +72,20 @@ class HomeController {
         stage.show()
     }
 
+    @FXML
+    private fun carregarTelaVerificarPacienteEnfileirado(event: ActionEvent) {
+        val loader = FXMLLoader(javaClass.getResource("verificar-cpf-view.fxml"))
+        root = loader.load()
+
+        atualizarDadosTelaVerificarPacienteEnfileirado(loader)
+
+        stage = (event.source as Node).scene.window as Stage
+        scene = Scene(root)
+        stage.scene = scene
+        stage.show()
+
+    }
+
     fun desenfileirarPaciente(event: ActionEvent) {
         if (!fila.estaVazia()) {
             val dataAtual: LocalDate = LocalDate.now()
@@ -164,4 +178,13 @@ class HomeController {
             qtdIdosos, qtdPrioridadeEmergencia, qtdPrioridadeMuitaUrgencia, qtdPrioridadeUrgencia, qtdPrioridadePoucaUrgencia,
             qtdPrioridadeNaoUrgente, senha)
     }
+
+    private fun atualizarDadosTelaVerificarPacienteEnfileirado(loader: FXMLLoader) {
+        val verificarCpfController: VerificarCpfController = loader.getController()
+        verificarCpfController.setDadosVerificarCpf(fila, qtdPacientesEnfileirados, qtdCriancas, qtdAdolescentes, qtdAdultos,
+            qtdIdosos, qtdPrioridadeEmergencia, qtdPrioridadeMuitaUrgencia, qtdPrioridadeUrgencia, qtdPrioridadePoucaUrgencia,
+            qtdPrioridadeNaoUrgente, senha)
+    }
+
+
 }

@@ -15,15 +15,15 @@ import java.time.format.DateTimeFormatter
 class CadastroController {
 
     @FXML
-    lateinit var nomeField: TextField
+    private lateinit var nomeField: TextField
     @FXML
-    lateinit var cpfField: TextField
+    private lateinit var cpfField: TextField
     @FXML
-    lateinit var sexoField: TextField
+    private lateinit var sexoField: TextField
     @FXML
-    lateinit var dataNascimentoField: TextField
+    private lateinit var dataNascimentoField: TextField
     @FXML
-    lateinit var relatoQueixasSintomasField: TextField
+    private lateinit var relatoQueixasSintomasField: TextField
 
     private var qtdCriancas: Int = 0
     private var qtdAdolescentes: Int = 0
@@ -31,7 +31,7 @@ class CadastroController {
     private var qtdIdosos: Int = 0
 
     private lateinit var fila: FilaPrioridade
-    private var qtdCacientesEnfileirados = 0
+    private var qtdPacientesEnfileirados = 0
 
     private var qtdPrioridadeEmergencia = 0
     private var qtdPrioridadeMuitaUrgencia = 0
@@ -68,12 +68,12 @@ class CadastroController {
         }
     }
 
-    fun setDadosCadastro(fila: FilaPrioridade, qtdCacientesEnfileirados: Int, qtdCriancas: Int, qtdAdolescentes: Int,
+    fun setDadosCadastro(fila: FilaPrioridade, qtdPacientesEnfileirados: Int, qtdCriancas: Int, qtdAdolescentes: Int,
                          qtdAdultos: Int, qtdIdosos: Int, qtdPrioridadeEmergencia: Int, qtdPrioridadeMuitaUrgencia:
                          Int, qtdPrioridadeUrgencia: Int, qtdPrioridadePoucaUrgencia: Int, qtdPrioridadeNaoUrgente:
                          Int, senha: String) {
         this.fila = fila
-        this.qtdCacientesEnfileirados = qtdCacientesEnfileirados
+        this.qtdPacientesEnfileirados = qtdPacientesEnfileirados
         this.qtdCriancas = qtdCriancas
         this.qtdAdolescentes = qtdAdolescentes
         this.qtdAdultos = qtdAdultos
@@ -102,7 +102,7 @@ class CadastroController {
 
 
         prioridadeController.setDadosPrioridade(nomeCompleto, cpf, sexo, dataNascimento, relatoQueixasSintomas,
-                qtdCacientesEnfileirados, fila, qtdCriancas, qtdAdolescentes, qtdAdultos, qtdIdosos, qtdPrioridadeEmergencia,
+                qtdPacientesEnfileirados, fila, qtdCriancas, qtdAdolescentes, qtdAdultos, qtdIdosos, qtdPrioridadeEmergencia,
             qtdPrioridadeMuitaUrgencia, qtdPrioridadeUrgencia, qtdPrioridadePoucaUrgencia, qtdPrioridadeNaoUrgente, senha)
     }
 

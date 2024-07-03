@@ -17,6 +17,7 @@ class HelloApplication : Application() {
             event.consume()
             confirmarFechar(stage)
         }
+
         val fxmlLoader = FXMLLoader(HelloApplication::class.java.getResource("telainicial-view.fxml"))
         val scene = Scene(fxmlLoader.load())
         stage.title = "FILAMED"
