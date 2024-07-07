@@ -108,16 +108,11 @@
                </Label>
             </children>
          </VBox>
-         <Pane layoutX="73.0" layoutY="154.0" prefHeight="59.0" prefWidth="203.0" style="-fx-background-radius: 15; -fx-background-color: #03537F;">
+         <Pane layoutX="78.0" layoutY="145.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="41.0" prefWidth="187.0" style="-fx-background-radius: 15; -fx-background-color: #03537F;">
             <children>
-               <VBox alignment="CENTER" layoutX="-1.0" layoutY="-3.0" prefHeight="64.0" prefWidth="203.0">
+               <VBox alignment="CENTER" layoutX="-25.0" layoutY="-11.0" prefHeight="64.0" prefWidth="237.0">
                   <children>
-                     <Label text="PRIORIDADE:" textFill="WHITE">
-                        <font>
-                           <Font size="17.0" />
-                        </font>
-                     </Label>
-                     <Label fx:id="prioridadeDoPaciente" alignment="CENTER" prefHeight="26.0" prefWidth="234.0" text="NÃO DEFINIDA" textFill="WHITE">
+                     <Label fx:id="prioridadeDoPaciente" alignment="CENTER" prefHeight="26.0" prefWidth="194.0" text="NÃO DEFINIDA" textFill="WHITE">
                         <font>
                            <Font size="14.0" />
                         </font>
@@ -231,9 +226,9 @@
                <Font size="18.0" />
             </font>
          </Label>
-         <Button fx:id="cadastrarPaciente" layoutX="21.0" layoutY="53.0" mnemonicParsing="false" onAction="#carregarTelaCadastro" prefHeight="57.0" prefWidth="75.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #0480C4; -fx-border-radius: 10; -fx-background-radius: 10;" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <Button fx:id="cadastrarPaciente" layoutX="27.0" layoutY="36.0" mnemonicParsing="false" onAction="#carregarTelaCadastro" prefHeight="53.0" prefWidth="66.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #0480C4; -fx-border-radius: 10; -fx-background-radius: 10;" textAlignment="CENTER" textFill="WHITE" wrapText="true">
             <graphic>
-               <ImageView fitHeight="47.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+               <ImageView fitHeight="43.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
                   <image>
                      <Image url="@../../../imgs/cadastrar-paciente.png" />
                   </image>
@@ -243,10 +238,13 @@
                <Cursor fx:constant="HAND" />
             </cursor>
          </Button>
-         <Label layoutX="9.0" layoutY="117.0" text="Cadastrar Paciente" textFill="WHITE" />
-         <Button layoutX="130.0" layoutY="53.0" mnemonicParsing="false" onAction="#carregarTelaVerificarPacienteEnfileirado" prefHeight="57.0" prefWidth="75.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #0480C4;" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <Label layoutX="17.0" layoutY="95.0" text="Cadastrar Paciente" textFill="WHITE">
+            <font>
+               <Font size="10.0" />
+            </font></Label>
+         <Button layoutX="107.0" layoutY="35.0" mnemonicParsing="false" onAction="#carregarTelaVerificarPacienteEnfileirado" prefHeight="55.0" prefWidth="2.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #0480C4;" textAlignment="CENTER" textFill="WHITE" wrapText="true">
             <graphic>
-               <ImageView fitHeight="52.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+               <ImageView fitHeight="47.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
                   <image>
                      <Image url="@../../../imgs/verificar-cpf.png" />
                   </image>
@@ -256,7 +254,7 @@
                <Cursor fx:constant="HAND" />
             </cursor>
          </Button>
-         <Button layoutX="241.0" layoutY="53.0" mnemonicParsing="false" onAction="#carregarTelaPrioridadesFilas" prefHeight="57.0" prefWidth="75.0" style="-fx-background-color: #FFFFFF; -fx-border-radius: 10; -fx-border-color: #0480C4; -fx-background-radius: 10;" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <Button layoutX="188.0" layoutY="35.0" mnemonicParsing="false" onAction="#carregarTelaPrioridadesFilas" prefHeight="57.0" prefWidth="63.0" style="-fx-background-color: #FFFFFF; -fx-border-radius: 10; -fx-border-color: #0480C4; -fx-background-radius: 10;" textAlignment="CENTER" textFill="WHITE" wrapText="true">
             <cursor>
                <Cursor fx:constant="HAND" />
             </cursor>
@@ -268,9 +266,16 @@
                </ImageView>
             </graphic>
          </Button>
-         <Label layoutX="240.0" layoutY="117.0" text="Consultar Filas" textFill="WHITE" />
-         <Label layoutX="134.0" layoutY="117.0" text="Verificar CPF" textFill="WHITE" />
-         <Button layoutX="58.0" layoutY="24.0" mnemonicParsing="false" onAction="#desenfileirarPaciente" text="Button" />
+         <Label layoutX="188.0" layoutY="95.0" text="Consultar Filas" textFill="WHITE">
+            <font>
+               <Font size="10.0" />
+            </font></Label>
+         <Label layoutX="110.0" layoutY="95.0" text="Verificar CPF" textFill="WHITE">
+            <font>
+               <Font size="10.0" />
+            </font></Label>
+         <Button layoutX="269.0" layoutY="50.0" mnemonicParsing="false" onAction="#desenfileirarPaciente" text="Button" />
+         <Button layoutX="102.0" layoutY="116.0" mnemonicParsing="false" onAction="#consultarEstatisticas" text="Consultar Estatísticas" />
       </children>
    </Pane>
 </VBox>

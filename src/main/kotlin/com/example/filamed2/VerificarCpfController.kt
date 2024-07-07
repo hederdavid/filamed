@@ -7,9 +7,7 @@ import javafx.scene.Node
 import javafx.scene.Parent
 import javafx.scene.Scene
 import javafx.scene.control.Alert
-import javafx.scene.control.ButtonType
 import javafx.scene.control.TextField
-import javafx.scene.layout.Region
 import javafx.stage.Stage
 import java.time.LocalDate
 import java.time.Period
@@ -25,6 +23,12 @@ class VerificarCpfController {
     private var qtdIdosos: Int = 0
 
     private lateinit var fila: FilaPrioridade
+    private var filaAtendidosEmergencia = FilaPrioridade(10)
+    private var filaAtendidosMuitaUrgencia = FilaPrioridade(10)
+    private var filaAtendidosUrgencia = FilaPrioridade(10)
+    private var filaAtendidosPoucaUrgencia = FilaPrioridade(10)
+    private var filaAtendidosNaoUrgencia = FilaPrioridade(10)
+
     private var qtdPacientesEnfileirados = 0
 
     private var qtdPrioridadeEmergencia = 0
@@ -73,9 +77,11 @@ class VerificarCpfController {
 
 
     fun setDadosVerificarCpf(fila: FilaPrioridade, qtdPacientesEnfileirados: Int, qtdCriancas: Int, qtdAdolescentes: Int,
-                         qtdAdultos: Int, qtdIdosos: Int, qtdPrioridadeEmergencia: Int, qtdPrioridadeMuitaUrgencia:
-                         Int, qtdPrioridadeUrgencia: Int, qtdPrioridadePoucaUrgencia: Int, qtdPrioridadeNaoUrgente:
-                         Int, senha: String) {
+                             qtdAdultos: Int, qtdIdosos: Int, qtdPrioridadeEmergencia: Int, qtdPrioridadeMuitaUrgencia:
+                             Int, qtdPrioridadeUrgencia: Int, qtdPrioridadePoucaUrgencia: Int, qtdPrioridadeNaoUrgente:
+                             Int, senha: String, filaAtendidosEmergencia: FilaPrioridade, filaAtendidosMuitaUrgencia: FilaPrioridade,
+                             filaAtendidosUrgencia: FilaPrioridade, filaAtendidosPoucaUrgencia: FilaPrioridade,
+                             filaAtendidosNaoUrgencia: FilaPrioridade) {
         this.fila = fila
         this.qtdPacientesEnfileirados = qtdPacientesEnfileirados
         this.qtdCriancas = qtdCriancas
@@ -89,6 +95,12 @@ class VerificarCpfController {
         this.qtdPrioridadePoucaUrgencia = qtdPrioridadePoucaUrgencia
         this.qtdPrioridadeNaoUrgente = qtdPrioridadeNaoUrgente
         this.senha = senha
+
+        this.filaAtendidosEmergencia = filaAtendidosEmergencia
+        this.filaAtendidosMuitaUrgencia = filaAtendidosMuitaUrgencia
+        this.filaAtendidosUrgencia = filaAtendidosUrgencia
+        this.filaAtendidosPoucaUrgencia = filaAtendidosPoucaUrgencia
+        this.filaAtendidosNaoUrgencia = filaAtendidosNaoUrgencia
     }
 
     private fun carregarTelaHome(event: ActionEvent) {
@@ -131,7 +143,8 @@ class VerificarCpfController {
         }
         homeController.setDadosHome(nome, idade, prioridade,  qtdPacientesEnfileirados, fila,
             qtdCriancas, qtdAdolescentes, qtdAdultos, qtdIdosos, qtdPrioridadeEmergencia, qtdPrioridadeMuitaUrgencia,
-            qtdPrioridadeUrgencia, qtdPrioridadePoucaUrgencia, qtdPrioridadeNaoUrgente, senha)
+            qtdPrioridadeUrgencia, qtdPrioridadePoucaUrgencia, qtdPrioridadeNaoUrgente, senha, filaAtendidosEmergencia,
+            filaAtendidosMuitaUrgencia, filaAtendidosUrgencia, filaAtendidosPoucaUrgencia, filaAtendidosNaoUrgencia)
     }
 
     private fun calcularIdade(dataNascimento: LocalDate) : Int {

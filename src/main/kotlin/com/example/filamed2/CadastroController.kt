@@ -31,6 +31,12 @@ class CadastroController {
     private var qtdIdosos: Int = 0
 
     private lateinit var fila: FilaPrioridade
+    private var filaAtendidosEmergencia = FilaPrioridade(10)
+    private var filaAtendidosMuitaUrgencia = FilaPrioridade(10)
+    private var filaAtendidosUrgencia = FilaPrioridade(10)
+    private var filaAtendidosPoucaUrgencia = FilaPrioridade(10)
+    private var filaAtendidosNaoUrgencia = FilaPrioridade(10)
+
     private var qtdPacientesEnfileirados = 0
 
     private var qtdPrioridadeEmergencia = 0
@@ -71,7 +77,9 @@ class CadastroController {
     fun setDadosCadastro(fila: FilaPrioridade, qtdPacientesEnfileirados: Int, qtdCriancas: Int, qtdAdolescentes: Int,
                          qtdAdultos: Int, qtdIdosos: Int, qtdPrioridadeEmergencia: Int, qtdPrioridadeMuitaUrgencia:
                          Int, qtdPrioridadeUrgencia: Int, qtdPrioridadePoucaUrgencia: Int, qtdPrioridadeNaoUrgente:
-                         Int, senha: String) {
+                         Int, senha: String, filaAtendidosEmergencia: FilaPrioridade, filaAtendidosMuitaUrgencia: FilaPrioridade,
+                         filaAtendidosUrgencia: FilaPrioridade, filaAtendidosPoucaUrgencia: FilaPrioridade,
+                         filaAtendidosNaoUrgencia: FilaPrioridade) {
         this.fila = fila
         this.qtdPacientesEnfileirados = qtdPacientesEnfileirados
         this.qtdCriancas = qtdCriancas
@@ -85,6 +93,12 @@ class CadastroController {
         this.qtdPrioridadePoucaUrgencia = qtdPrioridadePoucaUrgencia
         this.qtdPrioridadeNaoUrgente = qtdPrioridadeNaoUrgente
         this.senha = senha
+
+        this.filaAtendidosEmergencia = filaAtendidosEmergencia
+        this.filaAtendidosMuitaUrgencia = filaAtendidosMuitaUrgencia
+        this.filaAtendidosUrgencia = filaAtendidosUrgencia
+        this.filaAtendidosPoucaUrgencia = filaAtendidosPoucaUrgencia
+        this.filaAtendidosNaoUrgencia = filaAtendidosNaoUrgencia
     }
 
     private fun atualizarDadosTelaPrioridade(loader: FXMLLoader) {
@@ -102,8 +116,11 @@ class CadastroController {
 
 
         prioridadeController.setDadosPrioridade(nomeCompleto, cpf, sexo, dataNascimento, relatoQueixasSintomas,
-                qtdPacientesEnfileirados, fila, qtdCriancas, qtdAdolescentes, qtdAdultos, qtdIdosos, qtdPrioridadeEmergencia,
-            qtdPrioridadeMuitaUrgencia, qtdPrioridadeUrgencia, qtdPrioridadePoucaUrgencia, qtdPrioridadeNaoUrgente, senha)
+            qtdPacientesEnfileirados, fila, qtdCriancas, qtdAdolescentes, qtdAdultos, qtdIdosos, qtdPrioridadeEmergencia,
+            qtdPrioridadeMuitaUrgencia, qtdPrioridadeUrgencia, qtdPrioridadePoucaUrgencia, qtdPrioridadeNaoUrgente, senha,
+            filaAtendidosEmergencia, filaAtendidosMuitaUrgencia, filaAtendidosUrgencia, filaAtendidosPoucaUrgencia,
+            filaAtendidosNaoUrgencia
+        )
     }
 
     private fun isDadosInseridosCorretos(): Boolean {

@@ -21,7 +21,14 @@ class PrioridadeController {
     private var prioridadeString: String = ""
 
     private var qtdPacientesEnfileirados = 0
+
     private lateinit var fila: FilaPrioridade
+    private var filaAtendidosEmergencia = FilaPrioridade(10)
+    private var filaAtendidosMuitaUrgencia = FilaPrioridade(10)
+    private var filaAtendidosUrgencia = FilaPrioridade(10)
+    private var filaAtendidosPoucaUrgencia = FilaPrioridade(10)
+    private var filaAtendidosNaoUrgencia = FilaPrioridade(10)
+
 
     private var qtdCriancas: Int = 0
     private var qtdAdolescentes: Int = 0
@@ -78,7 +85,7 @@ class PrioridadeController {
         } else if (fila.espiar()?.prioridade == 3) {
             prioridadeString = "Urgência"
         } else if (fila.espiar()?.prioridade == 2) {
-        prioridadeString = "Pouca Urgência"
+            prioridadeString = "Pouca Urgência"
         } else if (fila.espiar()?.prioridade == 1) {
             prioridadeString = "Não Urgência"
         }
@@ -102,13 +109,17 @@ class PrioridadeController {
 
         homecontroller.setDadosHome(nomeCompleto, idade.toString(), prioridadeString, qtdPacientesEnfileirados, fila,
             qtdCriancas, qtdAdolescentes, qtdAdultos, qtdIdosos, qtdPrioridadeEmergencia, qtdPrioridadeMuitaUrgencia,
-            qtdPrioridadeUrgencia, qtdPrioridadePoucaUrgencia, qtdPrioridadeNaoUrgente, senha)
+            qtdPrioridadeUrgencia, qtdPrioridadePoucaUrgencia, qtdPrioridadeNaoUrgente, senha, filaAtendidosEmergencia,
+            filaAtendidosMuitaUrgencia, filaAtendidosUrgencia, filaAtendidosPoucaUrgencia, filaAtendidosNaoUrgencia)
     }
 
     fun setDadosPrioridade(nomeCompleto: String, cpf: String, sexo: Char, dataNascimento: LocalDate, relatoQueixasSintomas: String,
-                 qtdPacientesEnfileirados: Int, fila: FilaPrioridade, qtdCriancas: Int, qtdAdolescentes: Int,
-                 qtdAdultos: Int, qtdIdosos: Int, qtdPrioridadeEmergencia: Int, qtdPrioridadeMuitaUrgencia: Int,
-                 qtdPrioridadeUrgencia: Int, qtdPrioridadePoucaUrgencia: Int, qtdPrioridadeNaoUrgente: Int, senha: String) {
+                           qtdPacientesEnfileirados: Int, fila: FilaPrioridade, qtdCriancas: Int, qtdAdolescentes: Int,
+                           qtdAdultos: Int, qtdIdosos: Int, qtdPrioridadeEmergencia: Int, qtdPrioridadeMuitaUrgencia: Int,
+                           qtdPrioridadeUrgencia: Int, qtdPrioridadePoucaUrgencia: Int, qtdPrioridadeNaoUrgente: Int, senha: String,
+                           filaAtendidosEmergencia: FilaPrioridade, filaAtendidosMuitaUrgencia: FilaPrioridade,
+                           filaAtendidosUrgencia: FilaPrioridade, filaAtendidosPoucaUrgencia: FilaPrioridade,
+                           filaAtendidosNaoUrgencia: FilaPrioridade) {
         this.nomeCompleto = nomeCompleto
         this.cpf = cpf
         this.sexo = sexo
@@ -116,6 +127,7 @@ class PrioridadeController {
         this.relatoQueixasSintomas = relatoQueixasSintomas
         this.qtdPacientesEnfileirados = qtdPacientesEnfileirados
         this.fila = fila
+
         this.qtdCriancas = qtdCriancas
         this.qtdAdolescentes = qtdAdolescentes
         this.qtdAdultos = qtdAdultos
@@ -127,6 +139,12 @@ class PrioridadeController {
         this.qtdPrioridadePoucaUrgencia = qtdPrioridadePoucaUrgencia
         this.qtdPrioridadeNaoUrgente = qtdPrioridadeNaoUrgente
         this.senha = senha
+
+        this.filaAtendidosEmergencia = filaAtendidosEmergencia
+        this.filaAtendidosMuitaUrgencia = filaAtendidosMuitaUrgencia
+        this.filaAtendidosUrgencia = filaAtendidosUrgencia
+        this.filaAtendidosPoucaUrgencia = filaAtendidosPoucaUrgencia
+        this.filaAtendidosNaoUrgencia = filaAtendidosNaoUrgencia
     }
 
 

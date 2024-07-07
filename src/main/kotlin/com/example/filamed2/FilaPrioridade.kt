@@ -1,7 +1,7 @@
 package com.example.filamed2
 
-import javafx.collections.ObservableList
 import java.time.LocalDateTime
+import java.time.Duration
 
 class FilaPrioridade(private val tamanho: Int = 10): Enfileiravel {
 
@@ -25,7 +25,7 @@ class FilaPrioridade(private val tamanho: Int = 10): Enfileiravel {
             dadoRaiz = pacientes[0]
             pacientes[0] = pacientes[ponteiroFim]
             ponteiroFim = ponteiroFim.dec()
-            dadoRaiz?.dataHoraDesenfileiramento = LocalDateTime.now().toString()
+            dadoRaiz?.dataHoraDesenfileiramento = LocalDateTime.now()
             ajustarAbaixo(0)
             quantidade--
         }
@@ -142,8 +142,23 @@ class FilaPrioridade(private val tamanho: Int = 10): Enfileiravel {
         return quantidade
     }
 
-    fun get(i: Int): Paciente? {
+    operator fun get(i: Int): Paciente? {
         return pacientes[i]
+    }
+
+    fun calcularTempoMedioNaFila(): Double {
+        var somaTempo = 0L
+        var quantidadePacientes = 0
+
+        for (i in 0..ponteiroFim) {
+            val paciente = pacientes[i] ?: continue
+            val tempoPermanencia = Duration.between(paciente.dataHoraEnfileiramento, paciente.dataHoraDesenfileiramento).toSeconds()
+            somaTempo += tempoPermanencia
+            quantidadePacientes++
+        }
+
+        var tempo: Double = if (quantidadePacientes > 0) somaTempo.toDouble() / quantidadePacientes else 0.0
+        return tempo
     }
 
 

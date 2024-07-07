@@ -8,10 +8,13 @@ import javafx.fxml.FXMLLoader
 import javafx.scene.Node
 import javafx.scene.Parent
 import javafx.scene.Scene
+import javafx.scene.control.Alert
 import javafx.scene.control.Label
 import javafx.stage.Stage
 import java.time.LocalDate
+import java.time.LocalDateTime
 import java.time.Period
+import kotlin.time.Duration
 
 
 class HomeController {
@@ -38,6 +41,12 @@ class HomeController {
     lateinit var senhaLabel: Label
 
     private var fila = FilaPrioridade(10)
+    private var filaAtendidosEmergencia = FilaPrioridade(10)
+    private var filaAtendidosMuitaUrgencia = FilaPrioridade(10)
+    private var filaAtendidosUrgencia = FilaPrioridade(10)
+    private var filaAtendidosPoucaUrgencia = FilaPrioridade(10)
+    private var filaAtendidosNaoUrgencia = FilaPrioridade(10)
+
     private var qtdPacientesEnfileirados: Int = 0
     private var qtdCriancas: Int = 0
     private var qtdAdolescentes: Int = 0
@@ -98,6 +107,16 @@ class HomeController {
         stage.show()
 
     }
+    @FXML
+    private fun consultarEstatisticas(event: ActionEvent) {
+        val alert = Alert(Alert.AlertType.INFORMATION)
+        alert.title = "Estatísticas"
+        alert.headerText = "Tempo médio de permanência nas filas: Emergência: " + filaAtendidosEmergencia.calcularTempoMedioNaFila() +
+                "s | Muita urgência: " + filaAtendidosMuitaUrgencia.calcularTempoMedioNaFila() + " |s Urgência: " + filaAtendidosUrgencia.calcularTempoMedioNaFila() +
+                "s | Pouca urgência: " + filaAtendidosPoucaUrgencia.calcularTempoMedioNaFila() + " |s Não urgência: " + filaAtendidosNaoUrgencia.calcularTempoMedioNaFila() +
+                "s"
+        alert.showAndWait()
+    }
 
     fun desenfileirarPaciente(event: ActionEvent) {
         if (!fila.estaVazia()) {
@@ -112,7 +131,49 @@ class HomeController {
             }
         }
 
-        fila.desenfileirar()
+        when (fila.espiar()?.prioridade) {
+            5 -> {
+                val paciente = fila.desenfileirar() ?: return // Remover paciente da fila original
+
+                // Armazenar horário e CPF original
+                val horarioEnfileiramentoOriginal = paciente.dataHoraEnfileiramento
+                val cpfOriginal = paciente.cpf
+
+                // Atualizar horário de desenfileiramento do paciente
+                paciente.dataHoraDesenfileiramento = LocalDateTime.now()
+
+                // Enfileirar paciente na fila de atendidos de emergência
+                filaAtendidosEmergencia.enfileirar(paciente)
+
+                // Procurar paciente na fila de urgência e atualizar o horário de enfileiramento original, se encontrado
+                for (i in 0 .. filaAtendidosEmergencia.size()) {
+                    val pacienteUrgencia = filaAtendidosEmergencia[i]
+                    if (pacienteUrgencia?.cpf == cpfOriginal) {
+                        pacienteUrgencia.dataHoraEnfileiramento = horarioEnfileiramentoOriginal
+                        break // Sair do loop após encontrar o paciente
+                    }
+                }
+
+                println(filaAtendidosEmergencia)
+            }
+            4 -> {
+                fila.espiar()?.dataHoraDesenfileiramento = LocalDateTime.now()
+                filaAtendidosMuitaUrgencia.enfileirar(fila.desenfileirar()!!)
+            }
+            3 -> {
+                fila.espiar()?.dataHoraDesenfileiramento = LocalDateTime.now()
+                filaAtendidosUrgencia.enfileirar(fila.desenfileirar()!!)
+            }
+            2 -> {
+                fila.espiar()?.dataHoraDesenfileiramento = LocalDateTime.now()
+                filaAtendidosPoucaUrgencia.enfileirar(fila.desenfileirar()!!)
+            }
+            1 -> {
+                fila.espiar()?.dataHoraDesenfileiramento = LocalDateTime.now()
+                filaAtendidosNaoUrgencia.enfileirar(fila.desenfileirar()!!)
+            }
+            else -> fila.desenfileirar()
+        }
 
         if (qtdPacientesEnfileirados != 0) {
             qtdPacientesEnfileirados--
@@ -141,11 +202,21 @@ class HomeController {
             this.senhaLabel.text = fila.espiar()?.senha
 
             when (fila.espiar()?.prioridade) {
-                5 -> prioridadeDoPaciente.text = "Emergência"
-                4 -> prioridadeDoPaciente.text = "Muita Urgência"
-                3 -> prioridadeDoPaciente.text = "Urgência"
-                2 -> prioridadeDoPaciente.text = "Pouca Urgência"
-                1 -> prioridadeDoPaciente.text = "Não Urgência"
+                5 -> {
+                    prioridadeDoPaciente.text = "Emergência"
+                }
+                4 -> {
+                    prioridadeDoPaciente.text = "Muita Urgência"
+                }
+                3 -> {
+                    prioridadeDoPaciente.text = "Urgência"
+                }
+                2 -> {
+                    prioridadeDoPaciente.text = "Pouca Urgência"
+                }
+                1 -> {
+                    prioridadeDoPaciente.text = "Não Urgência"
+                }
                 else -> prioridadeDoPaciente.text = "NÃO DEFINIDA"
             }
         }
@@ -158,7 +229,10 @@ class HomeController {
     fun setDadosHome(nome: String, idade: String, prioridade: String, qtdPacientesEnfileirados: Int, fila: FilaPrioridade,
                      qtdCriancas: Int, qtdAdolescentes: Int, qtdAdultos: Int, qtdIdosos: Int, qtdPrioridadeEmergencia: Int,
                      qtdPrioridadeMuitaUrgencia: Int, qtdPrioridadeUrgencia: Int, qtdPrioridadePoucaUrgencia: Int,
-                     qtdPrioridadeNaoUrgente: Int, senha: String) {
+                     qtdPrioridadeNaoUrgente: Int, senha: String,
+                     filaAtendidosEmergencia: FilaPrioridade, filaAtendidosMuitaUrgencia: FilaPrioridade,
+                     filaAtendidosUrgencia: FilaPrioridade, filaAtendidosPoucaUrgencia: FilaPrioridade,
+                     filaAtendidosNaoUrgencia: FilaPrioridade) {
         this.nomeProximoPaciente.text = nome
         this.idadeProximoPaciente.text = idade
         this.prioridadeDoPaciente.text = prioridade
@@ -172,32 +246,37 @@ class HomeController {
         this.qtdAdultosLabel.text = qtdAdultos.toString()
         this.qtdIdososLabel.text = qtdIdosos.toString()
 
-        this.qtdCriancas = qtdCriancas
-        this.qtdAdolescentes = qtdAdolescentes
-        this.qtdAdultos = qtdAdultos
-        this.qtdIdosos = qtdIdosos
-
         this.qtdPrioridadeEmergencia = qtdPrioridadeEmergencia
         this.qtdPrioridadeMuitaUrgencia = qtdPrioridadeMuitaUrgencia
         this.qtdPrioridadeUrgencia = qtdPrioridadeUrgencia
         this.qtdPrioridadePoucaUrgencia = qtdPrioridadePoucaUrgencia
         this.qtdPrioridadeNaoUrgente = qtdPrioridadeNaoUrgente
         this.senha = senha
+
+        this.filaAtendidosEmergencia = filaAtendidosEmergencia
+        this.filaAtendidosMuitaUrgencia = filaAtendidosMuitaUrgencia
+        this.filaAtendidosUrgencia = filaAtendidosUrgencia
+        this.filaAtendidosPoucaUrgencia = filaAtendidosPoucaUrgencia
+        this.filaAtendidosNaoUrgencia = filaAtendidosNaoUrgencia
     }
+
 
     private fun atualizarDadosTelaCadastro(loader: FXMLLoader) {
         val cadastroController: CadastroController = loader.getController()
         cadastroController.setDadosCadastro(fila, qtdPacientesEnfileirados, qtdCriancas, qtdAdolescentes, qtdAdultos,
             qtdIdosos, qtdPrioridadeEmergencia, qtdPrioridadeMuitaUrgencia, qtdPrioridadeUrgencia, qtdPrioridadePoucaUrgencia,
-            qtdPrioridadeNaoUrgente, senha)
+            qtdPrioridadeNaoUrgente, senha,
+            filaAtendidosEmergencia, filaAtendidosMuitaUrgencia, filaAtendidosUrgencia, filaAtendidosPoucaUrgencia,
+            filaAtendidosNaoUrgencia)
     }
 
     private fun atualizarDadosTelaVerificarPacienteEnfileirado(loader: FXMLLoader) {
         val verificarCpfController: VerificarCpfController = loader.getController()
         verificarCpfController.setDadosVerificarCpf(fila, qtdPacientesEnfileirados, qtdCriancas, qtdAdolescentes, qtdAdultos,
             qtdIdosos, qtdPrioridadeEmergencia, qtdPrioridadeMuitaUrgencia, qtdPrioridadeUrgencia, qtdPrioridadePoucaUrgencia,
-            qtdPrioridadeNaoUrgente, senha)
+            qtdPrioridadeNaoUrgente, senha,
+            filaAtendidosEmergencia, filaAtendidosMuitaUrgencia, filaAtendidosUrgencia, filaAtendidosPoucaUrgencia,
+            filaAtendidosNaoUrgencia)
     }
-
 
 }
