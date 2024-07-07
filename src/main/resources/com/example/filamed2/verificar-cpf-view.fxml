@@ -26,7 +26,7 @@
       </Label>
       <StackPane alignment="CENTER_RIGHT" prefHeight="46.0" prefWidth="345.0">
          <children>
-            <TextField fx:id="campoPesquisaField" prefHeight="44.0" prefWidth="345.0" promptText="Insira o CPF do paciente" style="-fx-border-color: #0480c4; -fx-background-color: #0480C4; -fx-border-radius: 10; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,2,0.15), 15, 0, 0, 5); -fx-prompt-text-fill: rgba(255, 255, 255, 0.6); -fx-text-fill: #FFFFFF;">
+            <TextField fx:id="campoPesquisaField" prefHeight="44.0" prefWidth="345.0" promptText="Insira o CPF do paciente" style="-fx-border-color: #0480c4; -fx-background-color: #0480c4; -fx-border-radius: 10; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,2,0.15), 15, 0, 0, 5); -fx-prompt-text-fill: rgba(255, 255, 255, 0.6); -fx-text-fill: #FFFFFF;">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -36,7 +36,7 @@
             </TextField>
             <VBox alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="100.0" style="-fx-padding: 0 10 0 0;" StackPane.alignment="CENTER_RIGHT">
                <children>
-                  <Button mnemonicParsing="false" onAction="#verificarIminencia" style="-fx-background-color: transparente;">
+                  <Button mnemonicParsing="false" onAction="#verificarIminencia" style="-fx-background-color: transparent;">
                      <graphic>
                         <ImageView fitHeight="26.0" fitWidth="326.0" pickOnBounds="true" preserveRatio="true">
                            <image>

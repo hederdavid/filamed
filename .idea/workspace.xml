@@ -10,12 +10,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="41d5d62c-d457-4fc0-9614-726bb08ff3f2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/VerificarCpfController.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/filamed2/prioridades-filas-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/Application.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/Application.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/CadastroController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/CadastroController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/FilaPrioridade.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/FilaPrioridade.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/HomeController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/HomeController.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/VerificarCpfController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/example/filamed2/VerificarCpfController.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/filamed2/home-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/filamed2/home-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/filamed2/verificar-cpf-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/filamed2/verificar-cpf-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/filamed2/verificar-cpf.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,8 +32,8 @@
       <list>
         <option value="Kotlin Interface" />
         <option value="Class" />
-        <option value="FxmlFile" />
         <option value="Kotlin Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -170,7 +172,10 @@
       <workItem from="1719857850365" duration="33000" />
       <workItem from="1719962051299" duration="493000" />
       <workItem from="1720013624831" duration="160000" />
-      <workItem from="1720029982124" duration="5472000" />
+      <workItem from="1720029982124" duration="5623000" />
+      <workItem from="1720098428099" duration="1667000" />
+      <workItem from="1720180258155" duration="2554000" />
+      <workItem from="1720371153327" duration="301000" />
     </task>
     <servers />
   </component>

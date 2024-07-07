@@ -11,6 +11,8 @@ import javafx.scene.control.ButtonType
 import javafx.scene.control.TextField
 import javafx.scene.layout.Region
 import javafx.stage.Stage
+import java.time.LocalDate
+import java.time.Period
 
 class VerificarCpfController {
 
@@ -93,7 +95,7 @@ class VerificarCpfController {
         val loader = FXMLLoader(javaClass.getResource("home-view.fxml"))
         root = loader.load()
 
-//        atualizarDadosTelaHome(loader)
+        atualizarDadosTelaHome(loader)
 
         stage = (event.source as Node).scene.window as Stage
         scene = Scene(root)
@@ -101,11 +103,44 @@ class VerificarCpfController {
         stage.show()
     }
 
-//    private fun atualizarDadosTelaHome(loader: FXMLLoader) {
-//        val homeController: HomeController = loader.getController()
-//        homeController.setDadosHome(fila.espiar()!!.nomeCompleto, qtdPacientesEnfileirados, qtdCriancas, qtdAdolescentes, qtdAdultos,
-//            qtdIdosos, qtdPrioridadeEmergencia, qtdPrioridadeMuitaUrgencia, qtdPrioridadeUrgencia, qtdPrioridadePoucaUrgencia,
-//            qtdPrioridadeNaoUrgente, senha)
-//    }
+    private fun atualizarDadosTelaHome(loader: FXMLLoader) {
+        var nome = "NENHUM PACIENTE NA FILA"
+        var idade = "0"
+        var prioridade = "NÃO DEFINIDA"
+        val homeController: HomeController = loader.getController()
+        if (fila.espiar()?.nomeCompleto != null) {
+            nome = fila.espiar()!!.nomeCompleto
+        }
+
+        if (fila.espiar()?.dataNascimento?.let { calcularIdade(it) } != null ) {
+            idade = calcularIdade(fila.espiar()!!.dataNascimento).toString()
+        }
+
+        if (fila.espiar()?.prioridade != null) {
+            if (fila.espiar()?.prioridade == 5) {
+                prioridade = "Emergência"
+            } else if (fila.espiar()?.prioridade == 4) {
+                prioridade = "Muita urgência"
+            } else if (fila.espiar()?.prioridade == 3) {
+                prioridade = "Urgência"
+            } else if (fila.espiar()?.prioridade == 2) {
+                prioridade = "Pouca urgência"
+            } else if (fila.espiar()?.prioridade == 1) {
+                prioridade = "Não urgência"
+            }
+        }
+        homeController.setDadosHome(nome, idade, prioridade,  qtdPacientesEnfileirados, fila,
+            qtdCriancas, qtdAdolescentes, qtdAdultos, qtdIdosos, qtdPrioridadeEmergencia, qtdPrioridadeMuitaUrgencia,
+            qtdPrioridadeUrgencia, qtdPrioridadePoucaUrgencia, qtdPrioridadeNaoUrgente, senha)
+    }
+
+    private fun calcularIdade(dataNascimento: LocalDate) : Int {
+        var dataAtual: LocalDate = LocalDate.now()
+        var periodo: Period = Period.between(dataNascimento, dataAtual)
+        var idade: Int = periodo.years
+        return idade
+    }
+
+
 
 }

@@ -1,8 +1,9 @@
 package com.example.filamed2
 
+import javafx.collections.ObservableList
 import java.time.LocalDateTime
 
-class FilaPrioridade(private val tamanho: Int = 10): Enfileiravel{
+class FilaPrioridade(private val tamanho: Int = 10): Enfileiravel {
 
     private var pacientes: Array<Paciente?> = arrayOfNulls(tamanho)
     private var ponteiroFim = -1
@@ -15,8 +16,6 @@ class FilaPrioridade(private val tamanho: Int = 10): Enfileiravel{
             paciente.dataHoraEnfileiramento = LocalDateTime.now()
             ajustarAcima(ponteiroFim)
             quantidade++
-        } else {
-            println("Fila de Prioridades Cheia!")
         }
     }
 
@@ -29,8 +28,6 @@ class FilaPrioridade(private val tamanho: Int = 10): Enfileiravel{
             dadoRaiz?.dataHoraDesenfileiramento = LocalDateTime.now().toString()
             ajustarAbaixo(0)
             quantidade--
-        } else {
-            println("Fila de Prioridades Vazia!")
         }
         return dadoRaiz
     }
@@ -39,8 +36,6 @@ class FilaPrioridade(private val tamanho: Int = 10): Enfileiravel{
         if (!estaVazia()) {
             pacientes[0] = paciente
             ajustarAbaixo(0)
-        } else {
-            print("Fila de Prioridades Vazia!")
         }
     }
 
@@ -48,8 +43,6 @@ class FilaPrioridade(private val tamanho: Int = 10): Enfileiravel{
         var dadoRaiz: Paciente? = null
         if (!estaVazia())
             dadoRaiz = pacientes[0]
-        else
-            println("Fila de Prioridades Cheia!")
 
         return dadoRaiz
     }

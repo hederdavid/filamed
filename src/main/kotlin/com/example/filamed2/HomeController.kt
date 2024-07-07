@@ -83,6 +83,19 @@ class HomeController {
         scene = Scene(root)
         stage.scene = scene
         stage.show()
+    }
+
+    @FXML
+    private fun carregarTelaPrioridadesFilas(event: ActionEvent) {
+        val loader = FXMLLoader(javaClass.getResource("prioridades-filas-view.fxml"))
+        root = loader.load()
+
+        //atualizarDadosTelaVerificarPacienteEnfileirado(loader)
+
+        stage = (event.source as Node).scene.window as Stage
+        scene = Scene(root)
+        stage.scene = scene
+        stage.show()
 
     }
 
